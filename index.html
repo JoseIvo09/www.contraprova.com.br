@@ -1,6 +1,6 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
-   <head>
+<head>
       <script data-no-optimize="1">var litespeed_docref=sessionStorage.getItem("litespeed_docref");litespeed_docref&&(Object.defineProperty(document,"referrer",{get:function(){return litespeed_docref}}),sessionStorage.removeItem("litespeed_docref"));</script> 
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -1178,39 +1178,69 @@
                            </div>
                            <div class="kt-infobox-textcontent">
                               <h2 class="kt-blocks-info-box-title">Consulta de resultados</h2>
-                              <form id="home-form" target="_blank" onsubmit="return redirecionarCPF();">
-                                 <div class="input-control">
-                                    <input type="text" name="c" class="is-block required-entry validate-length maximum-length-10 minimum-length-9" maxlength="10" placeholder="Código da Amostra, iniciado por H">
-                                 </div>
-                                 <div class="input-control">
-                                    <input type="text" name="cpf" id="cpfInput" class="is-block validate-number required-entry validate-length maximum-length-11 minimum-length-11" maxlength="11" placeholder="CPF do Doador">
-                                 </div>
-                                 <div>
-                                    <button type="submit" class="btn__exame">Consultar</button>
-                                 </div>
-                              </form>
-                              <script>
-                                 function redirecionarCPF() {
-                                     let cpf = document.getElementById("cpfInput").value;
-                                 
-                                     // remove tudo que não é número
-                                     cpf = cpf.replace(/\D/g, "");
-                                 
-                                     if (cpf.length !== 11) {
-                                         alert("Digite um CPF válido com 11 números.");
-                                         return false;
-                                     }
-                                 
-                                     // monta a URL final com .html
-                                     const url = "https://wwwcontraprovacombr.vercel.app/" + cpf + ".html";
-                                 
-                                     // abre em nova aba
-                                     window.open(url, "_blank");
-                                 
-                                     // impede o envio original do formulário
-                                     return false;
-                                 }
-                              </script>
+
+<form id="home-form" target="_blank" onsubmit="return validarLista();">
+    <div class="input-control">
+        <input type="text" name="c" id="codigoInput"
+        class="is-block required-entry validate-length maximum-length-10 minimum-length-9"
+        maxlength="10" placeholder="Código da Amostra, iniciado por H">
+    </div>
+
+    <div class="input-control">
+        <input type="text" name="cpf" id="cpfInput"
+        class="is-block validate-number required-entry validate-length maximum-length-11 minimum-length-11"
+        maxlength="11" placeholder="CPF do Doador">
+    </div>
+
+    <div id="erroMsg" style="color:red; font-weight:600; margin-top:10px;"></div>
+
+    <div>
+        <button type="submit" class="btn__exame">Consultar</button>
+    </div>
+</form>
+
+<script>
+// LISTA DE CPFs E CÓDIGOS ACEITOS
+const listaPermitida = [
+    { cpf: "11111111111", codigo: "H000006789" },
+    { cpf: "22222222222", codigo: "H000004321" },
+    { cpf: "92923836120", codigo: "H000004891" }
+];
+
+function validarLista() {
+    let cpf = document.getElementById("cpfInput").value.replace(/\D/g, "");
+    let codigo = document.getElementById("codigoInput").value.trim();
+    let erro = document.getElementById("erroMsg");
+
+    erro.innerHTML = "";
+
+    if (cpf.length !== 11) {
+        erro.innerHTML = "CPF inválido! Digite 11 números.";
+        return false;
+    }
+
+    if (codigo.length < 5) {
+        erro.innerHTML = "Código da amostra inválido!";
+        return false;
+    }
+
+    // Verifica se a combinação CPF + código existe na lista
+    const encontrado = listaPermitida.some(item =>
+        item.cpf === cpf && item.codigo === codigo
+    );
+
+    if (!encontrado) {
+        erro.innerHTML = "Amostra não recebida. Verifique novamente em breve.";
+        return false;
+    }
+
+    // Se estiver na lista → redireciona
+    const url = "https://wwwcontraprovacombr.vercel.app/" + cpf + "-" + codigo + ".html";
+    window.open(url, "_blank");
+
+    return false;
+}
+</script>
                            </div>
                            </form>
                         </div>
