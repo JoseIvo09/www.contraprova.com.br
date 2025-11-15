@@ -1,273 +1,1706 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>SISProva</title>
-		<script src="jquery.min.js"></script>
-		<script src="bootstrap.min.js"></script>		
-		<link rel="stylesheet" href="bootstrap.min.css">
-		<link rel="stylesheet" href="font-awesome.min.css">
-		<link rel="stylesheet" href="main.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    integrity="sha512-SCEiGg6v6r9d8fBv9lP1lO+I0g6N3E5QO3hQ/OzZcZk3ted:#6b7280; /* cinza */
-    }
-    body{font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin:0; background:#f8fafc; color:#0f172a}
-    .container{max-width: 760px; margin: 40px auto; background:#fff; border-radius:12px; box-shadow:0 6px 24px rgba(2,6,23,.08); overflow:hidden}
-    header{background:linear-gradient(135deg, #2563eb, #1d4ed8); color:#fff; padding:20px 24px}
-    header h1{margin:0; font-size:20px}
-    header h2{margin:6px 0 0; font-weight:500; font-size:16px; opacity:.95}
-    .content{padding:24px}
-    .grid{display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin: 8px 0 16px}
-    .card{background:#f1f5f9; padding:14px 16px; border-radius:10px}
-    .label{color:#475569; font-size:12px; text-transform:uppercase; letter-spacing:.04em}
-    .value{font-weight:600; margin-top:2px}
-
-    .steps{margin: 18px 0}
-    .step{display:flex; align-items:center; gap:12px; padding:10px 0; border-bottom:1px solid #e5e7eb}
-    .step:last-child{border-bottom:none}
-    .step i{width:28px; height:28px; display:inline-flex; align-items:center; justify-content:center; border-radius:50%; color:#fff}
-    .step.recebida i{background: var(--primary)}
-    .step.analise i{background:#9333ea}
-    .step.laudo i{background: var(--success)}
-    .step .text{display:flex; flex-direction:column}
-    .step .title{font-weight:600}
-    .step .sub{color:#64748b; font-size:13px}
-
-    .complete{display:flex; align-items:center; gap:8px; margin: 12px 0 8px; color: var(--success); font-weight:600}
-    .actions{margin-top:8px}
-    .btn{display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border-radius:10px; border:1px solid #e5e7eb; background:#fff; cursor:pointer; text-decoration:none; color:#111827}
-    .btn:hover{background:#f9fafb}
-
-    .section-title{margin-top:18px; font-size:16px}
-    ul{margin:6px 0 0 18px}
-    footer{padding:16px 24px 24px; color:#475569}
-  </style>
-
-	</head>
-	<body>
-
- 
-        <div id="contrapr-side-trigger">
-        <div class="container-fluid">
-            <div class="row" id="busca-contrapr">
-            				
-
-			<div class="col-md-8 col-xs-12 col-md-offset-2"  style="margin-top:15px;">
-				<div class="formulario">
-					<div class="row">	
-						<div class="visible-xs col-md-6 col-xs-12 logo-home-xs">
-							<img src="logo.png" class="logo-contraprova">
-						</div>
-						<div class="visible-xs col-md-6 col-xs-12 txt-rastreamento-amostra-xs">
-							<h3 class="titulo-mobile">Rastreamento de Amostra</h3>
-						</div>
-						<div class="hidden-xs col-md-6 txt-rastreamento-amostra">
-							<h3>Rastreamento de Amostra</h3>
-						</div>
-						<div class="hidden-xs col-md-6 col-xs-12 logo-home">
-							<img src="logo.png" class="logo-contraprova">
-						</div>
-					</div>
-					<div class="row">
-						<hr>
-					</div>
-					<div class="row">	
-						<div class="col-md-12 bg-info-doador">	
-							<div class="hidden-xs col-md-4 txt-nome-doador">
-								<h4 style="white-space: nowrap;">Nome: SINNOMAR SILVA LINO</h4><br>
-							</div>
-							<div class="visible-xs col-md-4 col-xs-12">
-								<h4 class="txt-status-amostra" style="white-space: nowrap;">Nome: SINNOMAR SILVA LINO</h4>
-							</div>
-							<div class="hidden-xs col-md-4">
-								<h4 class="txt-status-amostra" style="white-space: nowrap;">CPF: 92923836120</h4>
-							</div>
-							<div class="visible-xs col-md-4 col-xs-12">
-								<h4 class="txt-status-amostra" style="white-space: nowrap;">CPF: 92923836120</h4>
-							</div>
-							<div class="hidden-xs col-md-4 txt-cod-coleta">
-								<h4 style="white-space:nowrap; text-align: right;">Código da Amostra: H000004891</h4>
-							</div>
-							<div class="visible-xs col-md-4 col-xs-12">
-								<h4 class="txt-status-amostra" style="white-space:nowrap;">Código da Amostra: H000004891</h4><br>
-							</div>
-						</div>	
-					</div>
-					<div class="row">
-						<div class="col-sm-12">
-							<div class="col-xs-4">
-								<table align="center">
-									<tr>
-										<td class="text-center" style="font-size: 32px"><span class="fa fa-truck"></span></td>
-									</tr>
-									<tr>
-										<td class="text-center">Recebida em 21/10/2025</td>
-									</tr>
-								</table>
-							</div>
-							<div class="col-xs-4">
-								<table align="center">
-									<tr>
-										<td class="text-center" style="font-size: 32px;"><span class="fa fa-flask"></span></td>
-									</tr>
-									<tr>
-										<td class="text-center">Análise concluída</td>
-									</tr>
-								</table>
-							</div>
-							<div class="col-xs-4">
-								<table align="center">
-									<tr>
-										<td class="text-center" style="font-size: 32px;"><span class="fa fa-file-text-o"></span></td>
-									</tr>
-									<tr>
-										<td class="text-center">Laudo Emitido em 27/10/2025</td>
-									</tr>
-								</table>
-							</div>
-						</div>												
-					</div>
-				
-					<div class="row" style="margin-top:20px;">
-						<div class="visible-xs col-sm-12">
-							<div class="progress">
-								<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-									<span class="sr-only">100% Complete</span>
-								</div>
-							</div>
-						</div>		
-						<div class="hidden-xs col-sm-12" style="padding:0px!important">
-							<div class="progress">
-								<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-									<span class="sr-only">100% Complete</span>
-								</div>
-							</div>
-						</div>					
-					</div>
-	
-					<div class="row text-center" style="margin-top:20px;">
-						<a href="https://wwwcontraprovacombr.vercel.app/Laudos/H000004891.pdf" id="baixaLaudo" class="btn btn-success" download="H000004891.pdf">Baixar Laudo</a>
-					</div>
-
-					<!-- <div class="row text-center" style="margin-top:20px;">
-						<form action="baixa-laudo.php" method="POST">
-							<input type="hidden" name="fileUrl" value="laudostemp/P000004891.pdf" />
-							<input type="hidden" name="downloadFile" value="ok">
-							<button type="submit" class="btn btn-success">Baixar Laudo</button>
-						</form>
-					</div> -->
-					<div class="row" style="padding:20px 0">
-						<hr>
-					</div>
-					<div class="row">
-						<div class="visible-xs col-md-12">	
-							<div class="col-md-4">
-								<h4 style="white-space: nowrap;">Liberação de Resultados:</h4>
-								<ul class="lista-informacoes">
-									<li>
-
-									<b>Negativo:</b> O prazo para liberação de resultados negativos na triagem é de 2 dias úteis após a chegada da amostra ao nosso laboratório em Niterói/RJ.
-
-									<br>
-									Caso a amostra seja recebida após às 11h, o prazo será acrescido de 1 dia útil.									
-									</li><br>
-									<li>
-
-									<b>Para testes não-negativos na triagem, os resultados são liberados em um prazo adicional de até 6 dias úteis.
-
-									</b>
-									<!-- <b>Não-Negativo:</b> 24h para a região metropolitana do Rio de Janeiro e 48h para os demais estados, após a chegada da amostra bo laboratório (Niterói/RJ), mais o prazo adicional de <b style="white-space: nowrap;">6 dias úteis.</b>	 -->
-									</li><br>
-								</ul>
-							</div>						
-							<div class="col-md-4 col-md-offset-4">
-								<h4 style="white-space: nowrap;">Canais de Atendimento:</h4>
-								<ul class="lista-informacoes">
-									<li>
-									<b>4007-2365</b> Capitais (custo de uma ligação local).	
-									</li><br>
-									<li>
-									<b>0800 008 2626</b> Demais Cidades e seguintes Estados: PI, MA, AM, PA, AP, RR	
-									</li><br>
-									<li>
-									faleconosco@contraaprova.com.br
-									</li>
-								</ul>
-							</div>
-						</div>	
-						<div class="hidden-xs col-md-12 bg-info-doador">	
-							<div class="col-md-4 txt-nome-doador">
-								<h4 style="white-space: nowrap;">Liberação de Resultados:</h4>
-								<ul class="lista-informacoes">
-									<li>
-
-									<b>Negativo:</b> O prazo para liberação de resultados negativos na triagem é de 2 dias úteis após a chegada da amostra ao nosso laboratório em Niterói/RJ.
-
-									<br>
-									Caso a amostra seja recebida após às 11h, o prazo será acrescido de 1 dia útil.									
-									</li><br>
-									<li>
-
-									<b>Para testes não-negativos na triagem, os resultados são liberados em um prazo adicional de até 6 dias úteis.
-
-									</b>
-									<!-- <b>Não-Negativo:</b> 24h para a região metropolitana do Rio de Janeiro e 48h para os demais estados, após a chegada da amostra bo laboratório (Niterói/RJ), mais o prazo adicional de <b style="white-space: nowrap;">6 dias úteis.</b>	 -->
-									</li><br>
-								</ul>
-							</div>						
-							<div class="col-md-4 col-md-offset-4">
-								<h4 style="white-space: nowrap;">Canais de Atendimento:</h4>
-								<ul class="lista-informacoes">
-									<li>
-									<b>4007-2365</b> Capitais (custo de uma ligação local).	
-									</li><br>
-									<li>
-									<b>0800 008 2626</b> Demais Cidades e seguintes Estados: PI, MA, AM, PA, AP, RR	
-									</li><br>
-									<li>
-									faleconosco@contraaprova.com.br
-									</li>
-								</ul>
-							</div>
-						</div>	
-					</div>
-				</div>
-<script type="text/javascript">
-	/* Helper function */
-	function download_file(fileURL, fileName) {
-	    // for non-IE
-	    if (!window.ActiveXObject) {
-	        var save = document.createElement('a');
-	        save.href = fileURL;
-	        save.target = '_blank';
-	        var filename = fileURL.substring(fileURL.lastIndexOf('/')+1);
-	        save.download = fileName || filename;
-		       if ( navigator.userAgent.toLowerCase().match(/(ipad|iphone|safari)/) && navigator.userAgent.search("Chrome") < 0) {
-					document.location = save.href; 
-	// window event not working here
-				}else{
-			        var evt = new MouseEvent('click', {
-			            'view': window,
-			            'bubbles': true,
-			            'cancelable': false
-			        });
-			        save.dispatchEvent(evt);
-			        (window.URL || window.webkitURL).revokeObjectURL(save.href);
-				}	
-	    }
-
-	    // for IE < 11
-	    else if ( !! window.ActiveXObject && document.execCommand)     {
-	        var _window = window.open(fileURL, '_blank');
-	        _window.document.close();
-	        _window.document.execCommand('SaveAs', true, fileName || fileURL)
-	        _window.close();
-	    }
-	}
-</script>
-</body>
+   <head>
+      <script data-no-optimize="1">var litespeed_docref=sessionStorage.getItem("litespeed_docref");litespeed_docref&&(Object.defineProperty(document,"referrer",{get:function(){return litespeed_docref}}),sessionStorage.removeItem("litespeed_docref"));</script> 
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="profile" href="https://gmpg.org/xfn/11">
+      <link rel="pingback" href="https://exames.contraprova.com.br/xmlrpc.php">
+      <title>Contraprova &#8211; Exames Toxicológicos &#8211; CONTRAPROVA &#8211; Doping e Toxicologia. Análise de drogas para empresas e pessoas físicas.</title>
+      <meta name='robots' content='max-image-preview:large' />
+      <style>img:is([sizes="auto" i], [sizes^="auto," i]) { contain-intrinsic-size: 3000px 1500px }</style>
+      <script type='application/javascript'  id='pys-version-script'>console.log('PixelYourSite Free version 11.1.3');</script> 
+      <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+      <link rel="alternate" type="application/rss+xml" title="Feed para Contraprova - Exames Toxicológicos &raquo;" href="https://exames.contraprova.com.br/feed/" />
+      <link rel="alternate" type="application/rss+xml" title="Feed de comentários para Contraprova - Exames Toxicológicos &raquo;" href="https://exames.contraprova.com.br/comments/feed/" />
+      <link data-optimized="2" rel="stylesheet" href="https://exames.contraprova.com.br/wp-content/litespeed/css/9070ee75669773f29a7e94161394487c.css?ver=c56bb" />
+      <style id='wp-block-library-theme-inline-css'>.wp-block-audio :where(figcaption){color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-audio :where(figcaption){color:#ffffffa6}.wp-block-audio{margin:0 0 1em}.wp-block-code{border:1px solid #ccc;border-radius:4px;font-family:Menlo,Consolas,monaco,monospace;padding:.8em 1em}.wp-block-embed :where(figcaption){color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-embed :where(figcaption){color:#ffffffa6}.wp-block-embed{margin:0 0 1em}.blocks-gallery-caption{color:#555;font-size:13px;text-align:center}.is-dark-theme .blocks-gallery-caption{color:#ffffffa6}:root :where(.wp-block-image figcaption){color:#555;font-size:13px;text-align:center}.is-dark-theme :root :where(.wp-block-image figcaption){color:#ffffffa6}.wp-block-image{margin:0 0 1em}.wp-block-pullquote{border-bottom:4px solid;border-top:4px solid;color:currentColor;margin-bottom:1.75em}.wp-block-pullquote cite,.wp-block-pullquote footer,.wp-block-pullquote__citation{color:currentColor;font-size:.8125em;font-style:normal;text-transform:uppercase}.wp-block-quote{border-left:.25em solid;margin:0 0 1.75em;padding-left:1em}.wp-block-quote cite,.wp-block-quote footer{color:currentColor;font-size:.8125em;font-style:normal;position:relative}.wp-block-quote:where(.has-text-align-right){border-left:none;border-right:.25em solid;padding-left:0;padding-right:1em}.wp-block-quote:where(.has-text-align-center){border:none;padding-left:0}.wp-block-quote.is-large,.wp-block-quote.is-style-large,.wp-block-quote:where(.is-style-plain){border:none}.wp-block-search .wp-block-search__label{font-weight:700}.wp-block-search__button{border:1px solid #ccc;padding:.375em .625em}:where(.wp-block-group.has-background){padding:1.25em 2.375em}.wp-block-separator.has-css-opacity{opacity:.4}.wp-block-separator{border:none;border-bottom:2px solid;margin-left:auto;margin-right:auto}.wp-block-separator.has-alpha-channel-opacity{opacity:1}.wp-block-separator:not(.is-style-wide):not(.is-style-dots){width:100px}.wp-block-separator.has-background:not(.is-style-dots){border-bottom:none;height:1px}.wp-block-separator.has-background:not(.is-style-wide):not(.is-style-dots){height:2px}.wp-block-table{margin:0 0 1em}.wp-block-table td,.wp-block-table th{word-break:normal}.wp-block-table :where(figcaption){color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-table :where(figcaption){color:#ffffffa6}.wp-block-video :where(figcaption){color:#555;font-size:13px;text-align:center}.is-dark-theme .wp-block-video :where(figcaption){color:#ffffffa6}.wp-block-video{margin:0 0 1em}:root :where(.wp-block-template-part.has-background){margin-bottom:0;margin-top:0;padding:1.25em 2.375em}</style>
+      <style id='classic-theme-styles-inline-css'>/*! This file is auto-generated */
+         .wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+      </style>
+      <style id='acf-icon-text-style-inline-css'>.icon-text{
+         display: flex;
+         gap: 15px;
+         align-items: center;
+         }
+         .icon-text__icon{
+         max-width: 60px;
+         flex-grow: 0;
+         flex-shrink: 0;
+         }
+         .icon-text__text{
+         flex-grow: 1;
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+         font-weight: bold;
+         font-size: 15px;
+         color: #fff
+         }
+         .icon-text__text p{
+         margin: 0;
+         }
+         .icon-text__text a{
+         color: #fff
+         }
+         /* helpers */
+      </style>
+      <style id='acf-icon-text-title-style-inline-css'>.icon-tt{
+         display: flex;
+         gap: 15px;
+         align-items: center;
+         }
+         .icon-tt__icon{
+         width: 45px;
+         height: 45px;
+         flex-grow: 0;
+         flex-shrink: 0;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         border-radius: 50%;
+         z-index: 10;
+         background: #FFF;
+         }
+         .icon-tt__text{
+         flex-grow: 1;
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+         font-weight: bold;
+         font-size: 18px;
+         text-transform: uppercase;
+         color: var(--color__primary-900)
+         }
+         .icon-tt .icon-tt__text-inner{
+         padding: 0 20px 0 40px;
+         margin-left: -40px;
+         position: relative;
+         z-index: 1;
+         border-top-right-radius: 15px;
+         border-bottom-right-radius: 15px;
+         }
+         /* variação */
+         .icon-tt.is-blue .icon-tt__text-inner{
+         background-color: var(--color__primary-900);
+         color: white;
+         }
+         /* variação */
+         .icon-tt.is-blue-title .icon-tt__icon{
+         background-color: var(--color__primary-900);
+         }
+         .icon-tt.is-blue-title .icon-tt__text-inner{
+         color: var(--color__primary-900);
+         }
+      </style>
+      <style id='acf-template-part-loader-style-inline-css'>.icon-tt{
+         display: flex;
+         gap: 15px;
+         align-items: center;
+         }
+         .icon-tt__icon{
+         width: 45px;
+         height: 45px;
+         flex-grow: 0;
+         flex-shrink: 0;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         border-radius: 50%;
+         background: #FFF;
+         }
+         .icon-tt__text{
+         flex-grow: 1;
+         display: flex;
+         flex-direction: row;
+         align-items: center;
+         font-weight: bold;
+         font-size: 18px;
+         text-transform: uppercase;
+         color: var(--color__primary-900)
+         }
+      </style>
+      <style id='acf-slider-principal-style-inline-css'>/* --------------------------------------------------------------------------- */
+         /* slider-top-home */
+         /* --------------------------------------------------------------------------- */
+         .slider-top-home{
+         display: none;
+         background-color: var(--color__primary);
+         }
+         @media(min-width: 1240px){
+         .slider-top-home{
+         display: block;
+         }   
+         }
+         .slider-top-home__container{
+         display: flex;
+         justify-content: end;
+         }
+         .slider-top-home__item{
+         width: 100%;
+         max-width: 290px;
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         transition: all .4s ease-in-out 
+         }
+         .slider-top-home__item.is-active{
+         max-width: 790px;
+         transition: all .4s ease-in-out 
+         }
+         .slider-top-home__item.is-empresa{
+         background-color: var(--color__primary-900);
+         }
+         .slider-top-home__item.is-concurso{
+         background-color: var(--color__green-400);
+         }
+         .slider-top-home__item.has-shadow{
+         -webkit-box-shadow: inset 21px 0px 20px 1px rgb(0 0 0 / 48%);
+         -moz-box-shadow: inset 21px 0px 20px 1px rgb(0 0 0 / 48%);
+         box-shadow: inset 21px 0px 20px 1px rgb(0 0 0 / 48%);
+         }
+         .slider-top-home__item-info{
+         display: flex;
+         padding: 30px 30px 40px 30px;
+         flex-direction: column;
+         justify-content: space-between;
+         gap: 20px;
+         order: 2;
+         }
+         .slider-top-home__item-bg{
+         min-height: 190px;
+         background-size: cover;
+         background-repeat: no-repeat;
+         background-position: center;
+         flex-grow: 1;
+         order: 1;
+         }
+         .slider-top-home__item-bg.is-desktop{
+         display:none
+         }
+         @media(min-width: 640px){
+         .slider-top-home__item{
+         flex-direction: row;
+         justify-content: none;
+         }
+         .slider-top-home__item-info{
+         order: 1;
+         min-height: 565px;
+         }
+         .slider-top-home__item-bg{
+         background-position: center;
+         display: block;
+         order: 2;
+         }
+         .slider-top-home__item-bg.is-mobile{
+         display: none;
+         }
+         .slider-top-home__item-bg.is-desktop{
+         display: block;
+         order: 2;
+         }
+         }
+         @media(min-width: 1024px){
+         .slider-top-home__item-info{
+         min-height: 565px;
+         }
+         }
+         .slider-top-home__icon-container{
+         display: flex;
+         justify-content: center;
+         margin-bottom: 20px;
+         }
+         .slider-top-home__content{
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         gap: 20px;
+         }
+         .slider-top-home__toogle{
+         transform: scale(0.5);
+         opacity: 0;
+         }
+         .slider-top-home__item.is-active .slider-top-home__toogle{
+         transform: scale(1);
+         opacity: 1;
+         transition: all .4s ease-in-out 
+         }
+         /*  */
+         .slider-top-home__preco{
+         padding: 20px;
+         text-transform: uppercase;
+         color: var(--color__primary-900);
+         background-color: white;
+         border-radius: 20px;
+         max-width: 340px;
+         }
+         .slider-top-home__preco-empresa{
+         margin-bottom: 0;
+         font-weight: 700;
+         font-size: 20px;
+         line-height: 1.3;
+         text-align: center;
+         }
+         .slider-top-home__preco-1{
+         margin: 0;
+         padding: 0;
+         font-size: 25px;
+         }
+         .slider-top-home__preco-2{
+         margin: 0;
+         padding: 0;
+         display: flex;
+         flex-direction: row;
+         justify-content: end;
+         gap: 5px;
+         font-size: 17px;
+         line-height: 1;
+         align-items: start;
+         }
+         .slider-top-home__preco-2 span{
+         margin: -9px 0 0 0 ;
+         padding: 0;
+         font-size: 75px;
+         font-weight: bold;
+         line-height: 1;
+         }
+         /*  */
+         .slider-top-home__title{
+         text-align: center;
+         text-transform: uppercase;
+         color: white;
+         font-weight: 700;
+         margin-bottom: 0;
+         }
+         .slider-top-home__title span{
+         display: block;
+         }
+         .slider-top-home__title-1{
+         font-size: 18px;
+         transition: all .4s ease-in-out  
+         }
+         .slider-top-home__title-2{
+         font-size: 21px;
+         transition: all .4s ease-in-out 
+         }
+         .slider-top-home__item.is-active .slider-top-home__title-1{
+         font-size: 28px;
+         transition: all .4s ease-in-out 
+         }
+         .slider-top-home__item.is-active .slider-top-home__title-2{
+         font-size: 35px;
+         transition: all .4s ease-in-out 
+         }
+         /* --- */
+         .slider-top-home__button-container{
+         display: flex;
+         flex-direction: column;
+         align-items: center;
+         justify-content: center;
+         }
+         .slider-top-home__btn{
+         display: block;
+         }
+         .slider-top-home__btn__text-default{
+         display: none;
+         font-weight: bold;
+         }
+         .slider-top-home__btn__text-alternative{
+         display: block;
+         font-weight: bold;
+         }
+         @media(min-width:1240px){
+         .slider-top-home__btn__text-default{
+         display: block;
+         font-weight: bold;
+         }
+         .slider-top-home__btn__text-alternative{
+         display: none;
+         font-weight: bold;
+         }
+         }
+         /* versão mobile */
+         @media(min-width: 1240px){
+         .slider-top-home__mobile{
+         display: none;
+         }
+         }
+         .slider-top-home__item.is-mobile{
+         width: 100%;
+         max-width: 100%;
+         }
+         .slider-top-home__item.is-mobile .slider-top-home__toogle{
+         transform: scale(1);
+         opacity: 1;
+         }
+         .slider-top-home__item.is-mobile  .slider-top-home__preco-1 {
+         font-size: 17px;
+         }
+         .slider-top-home__item.is-mobile  .slider-top-home__preco-2 {
+         font-size: 10px;
+         }
+         .slider-top-home__item.is-mobile  .slider-top-home__preco-2 span {
+         font-size: 57px;
+         }
+      </style>
+      <style id='storefront-gutenberg-blocks-inline-css'>.wp-block-button__link:not(.has-text-color) {
+         color: #333333;
+         }
+         .wp-block-button__link:not(.has-text-color):hover,
+         .wp-block-button__link:not(.has-text-color):focus,
+         .wp-block-button__link:not(.has-text-color):active {
+         color: #333333;
+         }
+         .wp-block-button__link:not(.has-background) {
+         background-color: #eeeeee;
+         }
+         .wp-block-button__link:not(.has-background):hover,
+         .wp-block-button__link:not(.has-background):focus,
+         .wp-block-button__link:not(.has-background):active {
+         border-color: #d5d5d5;
+         background-color: #d5d5d5;
+         }
+         .wc-block-grid__products .wc-block-grid__product .wp-block-button__link {
+         background-color: #eeeeee;
+         border-color: #eeeeee;
+         color: #333333;
+         }
+         .wp-block-quote footer,
+         .wp-block-quote cite,
+         .wp-block-quote__citation {
+         color: #6d6d6d;
+         }
+         .wp-block-pullquote cite,
+         .wp-block-pullquote footer,
+         .wp-block-pullquote__citation {
+         color: #6d6d6d;
+         }
+         .wp-block-image figcaption {
+         color: #6d6d6d;
+         }
+         .wp-block-separator.is-style-dots::before {
+         color: #333333;
+         }
+         .wp-block-file a.wp-block-file__button {
+         color: #333333;
+         background-color: #eeeeee;
+         border-color: #eeeeee;
+         }
+         .wp-block-file a.wp-block-file__button:hover,
+         .wp-block-file a.wp-block-file__button:focus,
+         .wp-block-file a.wp-block-file__button:active {
+         color: #333333;
+         background-color: #d5d5d5;
+         }
+         .wp-block-code,
+         .wp-block-preformatted pre {
+         color: #6d6d6d;
+         }
+         .wp-block-table:not( .has-background ):not( .is-style-stripes ) tbody tr:nth-child(2n) td {
+         background-color: #fdfdfd;
+         }
+         .wp-block-cover .wp-block-cover__inner-container h1:not(.has-text-color),
+         .wp-block-cover .wp-block-cover__inner-container h2:not(.has-text-color),
+         .wp-block-cover .wp-block-cover__inner-container h3:not(.has-text-color),
+         .wp-block-cover .wp-block-cover__inner-container h4:not(.has-text-color),
+         .wp-block-cover .wp-block-cover__inner-container h5:not(.has-text-color),
+         .wp-block-cover .wp-block-cover__inner-container h6:not(.has-text-color) {
+         color: #000000;
+         }
+         .wc-block-components-price-slider__range-input-progress,
+         .rtl .wc-block-components-price-slider__range-input-progress {
+         --range-color: #7f54b3;
+         }
+         /* Target only IE11 */
+         @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+         .wc-block-components-price-slider__range-input-progress {
+         background: #7f54b3;
+         }
+         }
+         .wc-block-components-button:not(.is-link) {
+         background-color: #333333;
+         color: #ffffff;
+         }
+         .wc-block-components-button:not(.is-link):hover,
+         .wc-block-components-button:not(.is-link):focus,
+         .wc-block-components-button:not(.is-link):active {
+         background-color: #1a1a1a;
+         color: #ffffff;
+         }
+         .wc-block-components-button:not(.is-link):disabled {
+         background-color: #333333;
+         color: #ffffff;
+         }
+         .wc-block-cart__submit-container {
+         background-color: #ffffff;
+         }
+         .wc-block-cart__submit-container::before {
+         color: rgba(220,220,220,0.5);
+         }
+         .wc-block-components-order-summary-item__quantity {
+         background-color: #ffffff;
+         border-color: #6d6d6d;
+         box-shadow: 0 0 0 2px #ffffff;
+         color: #6d6d6d;
+         }
+      </style>
+      <style id='global-styles-inline-css'>:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--very-light-gray: #eeeeee;--wp--preset--color--very-dark-gray: #313131;--wp--preset--color--kb-palette-1: #0074d9;--wp--preset--color--kb-palette-12: #ffffff;--wp--preset--color--kb-palette-2: #07a9dc;--wp--preset--color--kb-palette-3: #0099cc;--wp--preset--color--kb-palette-4: #00498b;--wp--preset--color--kb-palette-5: #888888;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 14px;--wp--preset--font-size--medium: 23px;--wp--preset--font-size--large: 26px;--wp--preset--font-size--x-large: 42px;--wp--preset--font-size--normal: 16px;--wp--preset--font-size--huge: 37px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgba(255, 255, 255, 1), 6px 6px rgba(0, 0, 0, 1);--wp--preset--shadow--crisp: 6px 6px 0px rgba(0, 0, 0, 1);}:root :where(.is-layout-flow) > :first-child{margin-block-start: 0;}:root :where(.is-layout-flow) > :last-child{margin-block-end: 0;}:root :where(.is-layout-flow) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-constrained) > :first-child{margin-block-start: 0;}:root :where(.is-layout-constrained) > :last-child{margin-block-end: 0;}:root :where(.is-layout-constrained) > *{margin-block-start: 24px;margin-block-end: 0;}:root :where(.is-layout-flex){gap: 24px;}:root :where(.is-layout-grid){gap: 24px;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-very-light-gray-color{color: var(--wp--preset--color--very-light-gray) !important;}.has-very-dark-gray-color{color: var(--wp--preset--color--very-dark-gray) !important;}.has-kb-palette-1-color{color: var(--wp--preset--color--kb-palette-1) !important;}.has-kb-palette-12-color{color: var(--wp--preset--color--kb-palette-12) !important;}.has-kb-palette-2-color{color: var(--wp--preset--color--kb-palette-2) !important;}.has-kb-palette-3-color{color: var(--wp--preset--color--kb-palette-3) !important;}.has-kb-palette-4-color{color: var(--wp--preset--color--kb-palette-4) !important;}.has-kb-palette-5-color{color: var(--wp--preset--color--kb-palette-5) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-very-light-gray-background-color{background-color: var(--wp--preset--color--very-light-gray) !important;}.has-very-dark-gray-background-color{background-color: var(--wp--preset--color--very-dark-gray) !important;}.has-kb-palette-1-background-color{background-color: var(--wp--preset--color--kb-palette-1) !important;}.has-kb-palette-12-background-color{background-color: var(--wp--preset--color--kb-palette-12) !important;}.has-kb-palette-2-background-color{background-color: var(--wp--preset--color--kb-palette-2) !important;}.has-kb-palette-3-background-color{background-color: var(--wp--preset--color--kb-palette-3) !important;}.has-kb-palette-4-background-color{background-color: var(--wp--preset--color--kb-palette-4) !important;}.has-kb-palette-5-background-color{background-color: var(--wp--preset--color--kb-palette-5) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-very-light-gray-border-color{border-color: var(--wp--preset--color--very-light-gray) !important;}.has-very-dark-gray-border-color{border-color: var(--wp--preset--color--very-dark-gray) !important;}.has-kb-palette-1-border-color{border-color: var(--wp--preset--color--kb-palette-1) !important;}.has-kb-palette-12-border-color{border-color: var(--wp--preset--color--kb-palette-12) !important;}.has-kb-palette-2-border-color{border-color: var(--wp--preset--color--kb-palette-2) !important;}.has-kb-palette-3-border-color{border-color: var(--wp--preset--color--kb-palette-3) !important;}.has-kb-palette-4-border-color{border-color: var(--wp--preset--color--kb-palette-4) !important;}.has-kb-palette-5-border-color{border-color: var(--wp--preset--color--kb-palette-5) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}.has-normal-font-size{font-size: var(--wp--preset--font-size--normal) !important;}.has-huge-font-size{font-size: var(--wp--preset--font-size--huge) !important;}
+         :root :where(.wp-block-pullquote){font-size: 1.5em;line-height: 1.6;}
+      </style>
+      <style id='woocommerce-inline-inline-css'>.woocommerce form .form-row .required { visibility: visible; }</style>
+      <style id='storefront-style-inline-css'>.main-navigation ul li a,
+         .site-title a,
+         ul.menu li a,
+         .site-branding h1 a,
+         button.menu-toggle,
+         button.menu-toggle:hover,
+         .handheld-navigation .dropdown-toggle {
+         color: #333333;
+         }
+         button.menu-toggle,
+         button.menu-toggle:hover {
+         border-color: #333333;
+         }
+         .main-navigation ul li a:hover,
+         .main-navigation ul li:hover > a,
+         .site-title a:hover,
+         .site-header ul.menu li.current-menu-item > a {
+         color: #747474;
+         }
+         table:not( .has-background ) th {
+         background-color: #f8f8f8;
+         }
+         table:not( .has-background ) tbody td {
+         background-color: #fdfdfd;
+         }
+         table:not( .has-background ) tbody tr:nth-child(2n) td,
+         fieldset,
+         fieldset legend {
+         background-color: #fbfbfb;
+         }
+         .site-header,
+         .secondary-navigation ul ul,
+         .main-navigation ul.menu > li.menu-item-has-children:after,
+         .secondary-navigation ul.menu ul,
+         .storefront-handheld-footer-bar,
+         .storefront-handheld-footer-bar ul li > a,
+         .storefront-handheld-footer-bar ul li.search .site-search,
+         button.menu-toggle,
+         button.menu-toggle:hover {
+         background-color: #ffffff;
+         }
+         p.site-description,
+         .site-header,
+         .storefront-handheld-footer-bar {
+         color: #404040;
+         }
+         button.menu-toggle:after,
+         button.menu-toggle:before,
+         button.menu-toggle span:before {
+         background-color: #333333;
+         }
+         h1, h2, h3, h4, h5, h6, .wc-block-grid__product-title {
+         color: #333333;
+         }
+         .widget h1 {
+         border-bottom-color: #333333;
+         }
+         body,
+         .secondary-navigation a {
+         color: #6d6d6d;
+         }
+         .widget-area .widget a,
+         .hentry .entry-header .posted-on a,
+         .hentry .entry-header .post-author a,
+         .hentry .entry-header .post-comments a,
+         .hentry .entry-header .byline a {
+         color: #727272;
+         }
+         a {
+         color: #7f54b3;
+         }
+         a:focus,
+         button:focus,
+         .button.alt:focus,
+         input:focus,
+         textarea:focus,
+         input[type="button"]:focus,
+         input[type="reset"]:focus,
+         input[type="submit"]:focus,
+         input[type="email"]:focus,
+         input[type="tel"]:focus,
+         input[type="url"]:focus,
+         input[type="password"]:focus,
+         input[type="search"]:focus {
+         outline-color: #7f54b3;
+         }
+         button, input[type="button"], input[type="reset"], input[type="submit"], .button, .widget a.button {
+         background-color: #eeeeee;
+         border-color: #eeeeee;
+         color: #333333;
+         }
+         button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover, .button:hover, .widget a.button:hover {
+         background-color: #d5d5d5;
+         border-color: #d5d5d5;
+         color: #333333;
+         }
+         button.alt, input[type="button"].alt, input[type="reset"].alt, input[type="submit"].alt, .button.alt, .widget-area .widget a.button.alt {
+         background-color: #333333;
+         border-color: #333333;
+         color: #ffffff;
+         }
+         button.alt:hover, input[type="button"].alt:hover, input[type="reset"].alt:hover, input[type="submit"].alt:hover, .button.alt:hover, .widget-area .widget a.button.alt:hover {
+         background-color: #1a1a1a;
+         border-color: #1a1a1a;
+         color: #ffffff;
+         }
+         .pagination .page-numbers li .page-numbers.current {
+         background-color: #e6e6e6;
+         color: #636363;
+         }
+         #comments .comment-list .comment-content .comment-text {
+         background-color: #f8f8f8;
+         }
+         .site-footer {
+         background-color: #f0f0f0;
+         color: #6d6d6d;
+         }
+         .site-footer a:not(.button):not(.components-button) {
+         color: #333333;
+         }
+         .site-footer .storefront-handheld-footer-bar a:not(.button):not(.components-button) {
+         color: #333333;
+         }
+         .site-footer h1, .site-footer h2, .site-footer h3, .site-footer h4, .site-footer h5, .site-footer h6, .site-footer .widget .widget-title, .site-footer .widget .widgettitle {
+         color: #333333;
+         }
+         .page-template-template-homepage.has-post-thumbnail .type-page.has-post-thumbnail .entry-title {
+         color: #000000;
+         }
+         .page-template-template-homepage.has-post-thumbnail .type-page.has-post-thumbnail .entry-content {
+         color: #000000;
+         }
+         @media screen and ( min-width: 768px ) {
+         .secondary-navigation ul.menu a:hover {
+         color: #595959;
+         }
+         .secondary-navigation ul.menu a {
+         color: #404040;
+         }
+         .main-navigation ul.menu ul.sub-menu,
+         .main-navigation ul.nav-menu ul.children {
+         background-color: #f0f0f0;
+         }
+         .site-header {
+         border-bottom-color: #f0f0f0;
+         }
+         }
+      </style>
+      <style id='kadence-blocks-advancedheading-inline-css'>.wp-block-kadence-advancedheading mark{background:transparent;border-style:solid;border-width:0}.wp-block-kadence-advancedheading mark.kt-highlight{color:#f76a0c;}.kb-adv-heading-icon{display: inline-flex;justify-content: center;align-items: center;} .is-layout-constrained > .kb-advanced-heading-link {display: block;}.kb-screen-reader-text{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);}</style>
+      <style id='storefront-woocommerce-style-inline-css'>@font-face {
+         font-family: star;
+         src: url(https://exames.contraprova.com.br/wp-content/plugins/woocommerce/assets/fonts/star.eot);
+         src:
+         url(https://exames.contraprova.com.br/wp-content/plugins/woocommerce/assets/fonts/star.eot?#iefix) format("embedded-opentype"),
+         url(https://exames.contraprova.com.br/wp-content/plugins/woocommerce/assets/fonts/star.woff) format("woff"),
+         url(https://exames.contraprova.com.br/wp-content/plugins/woocommerce/assets/fonts/star.ttf) format("truetype"),
+         url(https://exames.contraprova.com.br/wp-content/plugins/woocommerce/assets/fonts/star.svg#star) format("svg");
+         font-weight: 400;
+         font-style: normal;
+         }
+         @font-face {
+         font-family: WooCommerce;
+         src: url(https://exames.contraprova.com.br/wp-content/plugins/woocommerce/assets/fonts/WooCommerce.eot);
+         src:
+         url(https://exames.contraprova.com.br/wp-content/plugins/woocommerce/assets/fonts/WooCommerce.eot?#iefix) format("embedded-opentype"),
+         url(https://exames.contraprova.com.br/wp-content/plugins/woocommerce/assets/fonts/WooCommerce.woff) format("woff"),
+         url(https://exames.contraprova.com.br/wp-content/plugins/woocommerce/assets/fonts/WooCommerce.ttf) format("truetype"),
+         url(https://exames.contraprova.com.br/wp-content/plugins/woocommerce/assets/fonts/WooCommerce.svg#WooCommerce) format("svg");
+         font-weight: 400;
+         font-style: normal;
+         }
+         a.cart-contents,
+         .site-header-cart .widget_shopping_cart a {
+         color: #333333;
+         }
+         a.cart-contents:hover,
+         .site-header-cart .widget_shopping_cart a:hover,
+         .site-header-cart:hover > li > a {
+         color: #747474;
+         }
+         table.cart td.product-remove,
+         table.cart td.actions {
+         border-top-color: #ffffff;
+         }
+         .storefront-handheld-footer-bar ul li.cart .count {
+         background-color: #333333;
+         color: #ffffff;
+         border-color: #ffffff;
+         }
+         .woocommerce-tabs ul.tabs li.active a,
+         ul.products li.product .price,
+         .onsale,
+         .wc-block-grid__product-onsale,
+         .widget_search form:before,
+         .widget_product_search form:before {
+         color: #6d6d6d;
+         }
+         .woocommerce-breadcrumb a,
+         a.woocommerce-review-link,
+         .product_meta a {
+         color: #727272;
+         }
+         .wc-block-grid__product-onsale,
+         .onsale {
+         border-color: #6d6d6d;
+         }
+         .star-rating span:before,
+         .quantity .plus, .quantity .minus,
+         p.stars a:hover:after,
+         p.stars a:after,
+         .star-rating span:before,
+         #payment .payment_methods li input[type=radio]:first-child:checked+label:before {
+         color: #7f54b3;
+         }
+         .widget_price_filter .ui-slider .ui-slider-range,
+         .widget_price_filter .ui-slider .ui-slider-handle {
+         background-color: #7f54b3;
+         }
+         .order_details {
+         background-color: #f8f8f8;
+         }
+         .order_details > li {
+         border-bottom: 1px dotted #e3e3e3;
+         }
+         .order_details:before,
+         .order_details:after {
+         background: -webkit-linear-gradient(transparent 0,transparent 0),-webkit-linear-gradient(135deg,#f8f8f8 33.33%,transparent 33.33%),-webkit-linear-gradient(45deg,#f8f8f8 33.33%,transparent 33.33%)
+         }
+         #order_review {
+         background-color: #ffffff;
+         }
+         #payment .payment_methods > li .payment_box,
+         #payment .place-order {
+         background-color: #fafafa;
+         }
+         #payment .payment_methods > li:not(.woocommerce-notice) {
+         background-color: #f5f5f5;
+         }
+         #payment .payment_methods > li:not(.woocommerce-notice):hover {
+         background-color: #f0f0f0;
+         }
+         .woocommerce-pagination .page-numbers li .page-numbers.current {
+         background-color: #e6e6e6;
+         color: #636363;
+         }
+         .wc-block-grid__product-onsale,
+         .onsale,
+         .woocommerce-pagination .page-numbers li .page-numbers:not(.current) {
+         color: #6d6d6d;
+         }
+         p.stars a:before,
+         p.stars a:hover~a:before,
+         p.stars.selected a.active~a:before {
+         color: #6d6d6d;
+         }
+         p.stars.selected a.active:before,
+         p.stars:hover a:before,
+         p.stars.selected a:not(.active):before,
+         p.stars.selected a.active:before {
+         color: #7f54b3;
+         }
+         .single-product div.product .woocommerce-product-gallery .woocommerce-product-gallery__trigger {
+         background-color: #eeeeee;
+         color: #333333;
+         }
+         .single-product div.product .woocommerce-product-gallery .woocommerce-product-gallery__trigger:hover {
+         background-color: #d5d5d5;
+         border-color: #d5d5d5;
+         color: #333333;
+         }
+         .button.added_to_cart:focus,
+         .button.wc-forward:focus {
+         outline-color: #7f54b3;
+         }
+         .added_to_cart,
+         .site-header-cart .widget_shopping_cart a.button,
+         .wc-block-grid__products .wc-block-grid__product .wp-block-button__link {
+         background-color: #eeeeee;
+         border-color: #eeeeee;
+         color: #333333;
+         }
+         .added_to_cart:hover,
+         .site-header-cart .widget_shopping_cart a.button:hover,
+         .wc-block-grid__products .wc-block-grid__product .wp-block-button__link:hover {
+         background-color: #d5d5d5;
+         border-color: #d5d5d5;
+         color: #333333;
+         }
+         .added_to_cart.alt, .added_to_cart, .widget a.button.checkout {
+         background-color: #333333;
+         border-color: #333333;
+         color: #ffffff;
+         }
+         .added_to_cart.alt:hover, .added_to_cart:hover, .widget a.button.checkout:hover {
+         background-color: #1a1a1a;
+         border-color: #1a1a1a;
+         color: #ffffff;
+         }
+         .button.loading {
+         color: #eeeeee;
+         }
+         .button.loading:hover {
+         background-color: #eeeeee;
+         }
+         .button.loading:after {
+         color: #333333;
+         }
+         @media screen and ( min-width: 768px ) {
+         .site-header-cart .widget_shopping_cart,
+         .site-header .product_list_widget li .quantity {
+         color: #404040;
+         }
+         .site-header-cart .widget_shopping_cart .buttons,
+         .site-header-cart .widget_shopping_cart .total {
+         background-color: #f5f5f5;
+         }
+         .site-header-cart .widget_shopping_cart {
+         background-color: #f0f0f0;
+         }
+         }
+         .storefront-product-pagination a {
+         color: #6d6d6d;
+         background-color: #ffffff;
+         }
+         .storefront-sticky-add-to-cart {
+         color: #6d6d6d;
+         background-color: #ffffff;
+         }
+         .storefront-sticky-add-to-cart a:not(.button) {
+         color: #333333;
+         }
+      </style>
+      <style id='kadence-blocks-global-variables-inline-css'>:root {--global-kb-font-size-sm:clamp(0.8rem, 0.73rem + 0.217vw, 0.9rem);--global-kb-font-size-md:clamp(1.1rem, 0.995rem + 0.326vw, 1.25rem);--global-kb-font-size-lg:clamp(1.75rem, 1.576rem + 0.543vw, 2rem);--global-kb-font-size-xl:clamp(2.25rem, 1.728rem + 1.63vw, 3rem);--global-kb-font-size-xxl:clamp(2.5rem, 1.456rem + 3.26vw, 4rem);--global-kb-font-size-xxxl:clamp(2.75rem, 0.489rem + 7.065vw, 6rem);}:root {--global-palette1: #3182CE;--global-palette2: #2B6CB0;--global-palette3: #1A202C;--global-palette4: #2D3748;--global-palette5: #4A5568;--global-palette6: #718096;--global-palette7: #EDF2F7;--global-palette8: #F7FAFC;--global-palette9: #ffffff;}</style>
+      <style id='kadence_blocks_css-inline-css'>.kadence-column154_88398a-30 > .kt-inside-inner-col{column-gap:var(--global-kb-gap-sm, 1rem);}.kadence-column154_88398a-30 > .kt-inside-inner-col{flex-direction:column;}.kadence-column154_88398a-30 > .kt-inside-inner-col > .aligncenter{width:100%;}@media all and (max-width: 1024px){.kadence-column154_88398a-30 > .kt-inside-inner-col{flex-direction:column;justify-content:center;}}@media all and (max-width: 767px){.kadence-column154_88398a-30 > .kt-inside-inner-col{flex-direction:column;justify-content:center;}}.kadence-column154_a511ee-d3{max-width:100%;margin-left:auto;margin-right:auto;}.wp-block-kadence-column.kb-section-dir-horizontal:not(.kb-section-md-dir-vertical)>.kt-inside-inner-col>.kadence-column154_a511ee-d3{-webkit-flex:0 1 100%;flex:0 1 100%;max-width:unset;margin-left:unset;margin-right:unset;}.kadence-column154_a511ee-d3 > .kt-inside-inner-col{column-gap:var(--global-kb-gap-sm, 1rem);}.kadence-column154_a511ee-d3 > .kt-inside-inner-col{flex-direction:column;}.kadence-column154_a511ee-d3 > .kt-inside-inner-col > .aligncenter{width:100%;}.kadence-column154_a511ee-d3 > .kt-inside-inner-col{background-color:#0693e3;}@media all and (min-width: 1025px){.wp-block-kadence-column.kb-section-dir-horizontal>.kt-inside-inner-col>.kadence-column154_a511ee-d3{-webkit-flex:0 1 100%;flex:0 1 100%;max-width:unset;margin-left:unset;margin-right:unset;}}@media all and (max-width: 1024px){.kadence-column154_a511ee-d3 > .kt-inside-inner-col{flex-direction:column;justify-content:center;}}@media all and (max-width: 767px){.wp-block-kadence-column.kb-section-sm-dir-vertical:not(.kb-section-sm-dir-horizontal):not(.kb-section-sm-dir-specificity)>.kt-inside-inner-col>.kadence-column154_a511ee-d3{max-width:100%;-webkit-flex:1;flex:1;margin-left:auto;margin-right:auto;}.kadence-column154_a511ee-d3 > .kt-inside-inner-col{flex-direction:column;justify-content:center;}}.kadence-column154_dfbb8a-1b{max-width:1340px;margin-left:auto;margin-right:auto;}.wp-block-kadence-column.kb-section-dir-horizontal:not(.kb-section-md-dir-vertical)>.kt-inside-inner-col>.kadence-column154_dfbb8a-1b{-webkit-flex:0 1 1340px;flex:0 1 1340px;max-width:unset;margin-left:unset;margin-right:unset;}.kadence-column154_dfbb8a-1b > .kt-inside-inner-col{column-gap:var(--global-kb-gap-sm, 1rem);}.kadence-column154_dfbb8a-1b > .kt-inside-inner-col{flex-direction:column;}.kadence-column154_dfbb8a-1b > .kt-inside-inner-col > .aligncenter{width:100%;}.kadence-column154_dfbb8a-1b, .kt-inside-inner-col > .kadence-column154_dfbb8a-1b:not(.specificity){margin-right:var(--global-kb-spacing-auto, auto);margin-left:var(--global-kb-spacing-auto, auto);}@media all and (min-width: 1025px){.wp-block-kadence-column.kb-section-dir-horizontal>.kt-inside-inner-col>.kadence-column154_dfbb8a-1b{-webkit-flex:0 1 1340px;flex:0 1 1340px;max-width:unset;margin-left:unset;margin-right:unset;}}@media all and (max-width: 1024px){.kadence-column154_dfbb8a-1b > .kt-inside-inner-col{flex-direction:column;justify-content:center;}}@media all and (max-width: 767px){.kadence-column154_dfbb8a-1b > .kt-inside-inner-col{padding-right:10px;padding-left:10px;flex-direction:column;justify-content:center;}.wp-block-kadence-column.kb-section-sm-dir-vertical:not(.kb-section-sm-dir-horizontal):not(.kb-section-sm-dir-specificity)>.kt-inside-inner-col>.kadence-column154_dfbb8a-1b{max-width:1340px;-webkit-flex:1;flex:1;margin-left:auto;margin-right:auto;}}.kb-row-layout-id154_1fbdbf-e0 > .kt-row-column-wrap{max-width:1370px;margin-left:auto;margin-right:auto;padding-top:var( --global-kb-row-default-top, var(--global-kb-spacing-sm, 1.5rem) );padding-bottom:var( --global-kb-row-default-bottom, var(--global-kb-spacing-sm, 1.5rem) );}.kb-row-layout-id154_1fbdbf-e0 > .kt-row-column-wrap > div:not(.added-for-specificity){grid-column:initial;}.kb-row-layout-id154_1fbdbf-e0 > .kt-row-column-wrap{grid-template-columns:repeat(4, minmax(0, 1fr));}@media all and (max-width: 1024px){.kb-row-layout-id154_1fbdbf-e0 > .kt-row-column-wrap{column-gap:var(--global-kb-gap-sm, 1rem);row-gap:var(--global-kb-gap-sm, 1rem);max-width:310px;margin-left:auto;margin-right:auto;grid-template-columns:minmax(0, 1fr);}}@media all and (max-width: 1024px){.kb-row-layout-id154_1fbdbf-e0 > .kt-row-column-wrap > div:not(.added-for-specificity){grid-column:initial;}}@media all and (max-width: 767px){.kb-row-layout-id154_1fbdbf-e0 > .kt-row-column-wrap > div:not(.added-for-specificity){grid-column:initial;}.kb-row-layout-id154_1fbdbf-e0 > .kt-row-column-wrap{grid-template-columns:minmax(0, 1fr);}}.kadence-column154_f86ff5-c7 > .kt-inside-inner-col{column-gap:var(--global-kb-gap-sm, 1rem);}.kadence-column154_f86ff5-c7 > .kt-inside-inner-col{flex-direction:column;}.kadence-column154_f86ff5-c7 > .kt-inside-inner-col > .aligncenter{width:100%;}@media all and (max-width: 1024px){.kadence-column154_f86ff5-c7 > .kt-inside-inner-col{flex-direction:column;justify-content:center;}}@media all and (max-width: 767px){.kadence-column154_f86ff5-c7 > .kt-inside-inner-col{flex-direction:column;justify-content:center;}}.wp-block-kadence-column.kb-section-dir-horizontal > .kt-inside-inner-col > .kt-info-box154_7bc3e5-3d{max-width:270px;}.wp-block-kadence-column.kb-section-dir-horizontal > .kt-inside-inner-col > .kt-info-box154_7bc3e5-3d .kt-blocks-info-box-link-wrap{max-width:unset;}.kt-info-box154_7bc3e5-3d .kt-blocks-info-box-link-wrap{background:#0693e3;max-width:270px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;}.kt-info-box154_7bc3e5-3d.wp-block-kadence-infobox{max-width:100%;}.kt-info-box154_7bc3e5-3d .kadence-info-box-image-inner-intrisic-container{max-width:60px;}.kt-info-box154_7bc3e5-3d .kadence-info-box-image-inner-intrisic-container .kadence-info-box-image-intrisic{padding-bottom:98.6667%;width:75px;height:0px;max-width:100%;}.kt-info-box154_7bc3e5-3d .kadence-info-box-icon-container .kt-info-svg-icon, .kt-info-box154_7bc3e5-3d .kt-info-svg-icon-flip, .kt-info-box154_7bc3e5-3d .kt-blocks-info-box-number{font-size:50px;}.kt-info-box154_7bc3e5-3d .kt-blocks-info-box-media{border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;margin-top:0px;margin-right:20px;margin-bottom:0px;margin-left:0px;}.kt-info-box154_7bc3e5-3d .kt-infobox-textcontent h2.kt-blocks-info-box-title{padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;margin-top:5px;margin-right:0px;margin-bottom:10px;margin-left:0px;}.kt-info-box154_7bc3e5-3d .kt-infobox-textcontent .kt-blocks-info-box-text{color:#ffffff;}.wp-block-kadence-infobox.kt-info-box154_7bc3e5-3d .kt-blocks-info-box-text{font-size:15px;font-weight:bold;}.kadence-column154_828719-c5 > .kt-inside-inner-col{column-gap:var(--global-kb-gap-sm, 1rem);}.kadence-column154_828719-c5 > .kt-inside-inner-col{flex-direction:column;}.kadence-column154_828719-c5 > .kt-inside-inner-col > .aligncenter{width:100%;}@media all and (max-width: 1024px){.kadence-column154_828719-c5{text-align:center;}}@media all and (max-width: 1024px){.kadence-column154_828719-c5 > .kt-inside-inner-col{flex-direction:column;justify-content:center;}}@media all and (max-width: 767px){.kadence-column154_828719-c5 > .kt-inside-inner-col{flex-direction:column;justify-content:center;}}.wp-block-kadence-advancedheading.kt-adv-heading154_7dbcd8-bc, .wp-block-kadence-advancedheading.kt-adv-heading154_7dbcd8-bc[data-kb-block="kb-adv-heading154_7dbcd8-bc"]{margin-bottom:5px;font-size:32px;line-height:1;font-weight:bold;color:#ffffff;}.wp-block-kadence-advancedheading.kt-adv-heading154_7dbcd8-bc mark.kt-highlight, .wp-block-kadence-advancedheading.kt-adv-heading154_7dbcd8-bc[data-kb-block="kb-adv-heading154_7dbcd8-bc"] mark.kt-highlight{-webkit-box-decoration-break:clone;box-decoration-break:clone;}.wp-block-kadence-advancedheading.kt-adv-heading154_51affe-68, .wp-block-kadence-advancedheading.kt-adv-heading154_51affe-68[data-kb-block="kb-adv-heading154_51affe-68"]{margin-bottom:0px;font-size:14px;line-height:1;color:#ffffff;}.wp-block-kadence-advancedheading.kt-adv-heading154_51affe-68 mark.kt-highlight, .wp-block-kadence-advancedheading.kt-adv-heading154_51affe-68[data-kb-block="kb-adv-heading154_51affe-68"] mark.kt-highlight{-webkit-box-decoration-break:clone;box-decoration-break:clone;}.kadence-column154_249fe8-ed > .kt-inside-inner-col{column-gap:var(--global-kb-gap-sm, 1rem);}.kadence-column154_249fe8-ed > .kt-inside-inner-col{flex-direction:column;}.kadence-column154_249fe8-ed > .kt-inside-inner-col > .aligncenter{width:100%;}@media all and (max-width: 1024px){.kadence-column154_249fe8-ed{text-align:center;}}@media all and (max-width: 1024px){.kadence-column154_249fe8-ed > .kt-inside-inner-col{flex-direction:column;justify-content:center;}}@media all and (max-width: 767px){.kadence-column154_249fe8-ed > .kt-inside-inner-col{flex-direction:column;justify-content:center;}}.wp-block-kadence-advancedheading.kt-adv-heading154_a69746-97, .wp-block-kadence-advancedheading.kt-adv-heading154_a69746-97[data-kb-block="kb-adv-heading154_a69746-97"]{margin-bottom:5px;font-size:32px;line-height:1;font-weight:bold;color:#ffffff;}.wp-block-kadence-advancedheading.kt-adv-heading154_a69746-97 mark.kt-highlight, .wp-block-kadence-advancedheading.kt-adv-heading154_a69746-97[data-kb-block="kb-adv-heading154_a69746-97"] mark.kt-highlight{color:#ff6900;-webkit-box-decoration-break:clone;box-decoration-break:clone;}.wp-block-kadence-advancedheading.kt-adv-heading154_8a75f1-c8, .wp-block-kadence-advancedheading.kt-adv-heading154_8a75f1-c8[data-kb-block="kb-adv-heading154_8a75f1-c8"]{margin-bottom:0px;font-size:14px;line-height:1;color:#ffffff;}.wp-block-kadence-advancedheading.kt-adv-heading154_8a75f1-c8 mark.kt-highlight, .wp-block-kadence-advancedheading.kt-adv-heading154_8a75f1-c8[data-kb-block="kb-adv-heading154_8a75f1-c8"] mark.kt-highlight{-webkit-box-decoration-break:clone;box-decoration-break:clone;}.kadence-column154_f4f7d4-ac > .kt-inside-inner-col{column-gap:var(--global-kb-gap-sm, 1rem);}.kadence-column154_f4f7d4-ac > .kt-inside-inner-col{flex-direction:column;}.kadence-column154_f4f7d4-ac > .kt-inside-inner-col > .aligncenter{width:100%;}@media all and (max-width: 1024px){.kadence-column154_f4f7d4-ac > .kt-inside-inner-col{flex-direction:column;justify-content:center;}}@media all and (max-width: 767px){.kadence-column154_f4f7d4-ac > .kt-inside-inner-col{flex-direction:column;justify-content:center;}}.wp-block-kadence-column.kb-section-dir-horizontal > .kt-inside-inner-col > .kt-info-box154_4fa3ab-42{max-width:222px;}.wp-block-kadence-column.kb-section-dir-horizontal > .kt-inside-inner-col > .kt-info-box154_4fa3ab-42 .kt-blocks-info-box-link-wrap{max-width:unset;}.kt-info-box154_4fa3ab-42 .kt-blocks-info-box-link-wrap{background:#0693e3;max-width:222px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;}.kt-info-box154_4fa3ab-42.wp-block-kadence-infobox{max-width:100%;}.kt-info-box154_4fa3ab-42 .kadence-info-box-image-inner-intrisic-container{max-width:60px;}.kt-info-box154_4fa3ab-42 .kadence-info-box-image-inner-intrisic-container .kadence-info-box-image-intrisic{padding-bottom:98.7179%;width:78px;height:0px;max-width:100%;}.kt-info-box154_4fa3ab-42 .kadence-info-box-icon-container .kt-info-svg-icon, .kt-info-box154_4fa3ab-42 .kt-info-svg-icon-flip, .kt-info-box154_4fa3ab-42 .kt-blocks-info-box-number{font-size:50px;}.kt-info-box154_4fa3ab-42 .kt-blocks-info-box-media{border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;margin-top:0px;margin-right:15px;margin-bottom:0px;margin-left:0px;}.kt-info-box154_4fa3ab-42 .kt-infobox-textcontent h2.kt-blocks-info-box-title{padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;margin-top:5px;margin-right:0px;margin-bottom:10px;margin-left:0px;}.kt-info-box154_4fa3ab-42 .kt-infobox-textcontent .kt-blocks-info-box-text{color:#ffffff;}.wp-block-kadence-infobox.kt-info-box154_4fa3ab-42 .kt-blocks-info-box-text{font-size:15px;font-weight:bold;}.kadence-column154_c210d6-cb > .kt-inside-inner-col{padding-right:10px;padding-left:10px;}.kadence-column154_c210d6-cb > .kt-inside-inner-col{column-gap:var(--global-kb-gap-sm, 1rem);}.kadence-column154_c210d6-cb > .kt-inside-inner-col{flex-direction:column;}.kadence-column154_c210d6-cb > .kt-inside-inner-col > .aligncenter{width:100%;}@media all and (max-width: 1024px){.kadence-column154_c210d6-cb > .kt-inside-inner-col{flex-direction:column;justify-content:center;}}@media all and (max-width: 767px){.kadence-column154_c210d6-cb > .kt-inside-inner-col{flex-direction:column;justify-content:center;}}.kb-row-layout-id154_17fccc-96 > .kt-row-column-wrap{max-width:1350px;margin-left:auto;margin-right:auto;padding-top:var(--global-kb-spacing-lg, 3rem);padding-bottom:var(--global-kb-spacing-lg, 3rem);}.kb-row-layout-id154_17fccc-96 > .kt-row-column-wrap > div:not(.added-for-specificity){grid-column:initial;}.kb-row-layout-id154_17fccc-96 > .kt-row-column-wrap{grid-template-columns:repeat(3, minmax(0, 1fr));}@media all and (max-width: 1024px){.kb-row-layout-id154_17fccc-96 > .kt-row-column-wrap > *:nth-child(3n+1 of *:not(style)){grid-column:1 / -1;}}@media all and (max-width: 1024px){.kb-row-layout-id154_17fccc-96 > .kt-row-column-wrap{grid-template-columns:repeat(2, minmax(0, 1fr));}}@media all and (max-width: 767px){.kb-row-layout-id154_17fccc-96 > .kt-row-column-wrap > div:not(.added-for-specificity){grid-column:initial;}.kb-row-layout-id154_17fccc-96 > .kt-row-column-wrap{grid-template-columns:minmax(0, 1fr);}}.kadence-column154_c32b61-b4 > .kt-inside-inner-col{padding-top:15px;padding-right:15px;padding-bottom:15px;padding-left:15px;}.kadence-column154_c32b61-b4 > .kt-inside-inner-col{border-top:1px solid #e4e4e4;border-right:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;border-left:1px solid #e4e4e4;}.kadence-column154_c32b61-b4 > .kt-inside-inner-col,.kadence-column154_c32b61-b4 > .kt-inside-inner-col:before{border-top-left-radius:20px;border-top-right-radius:20px;border-bottom-right-radius:20px;border-bottom-left-radius:20px;}.kadence-column154_c32b61-b4 > .kt-inside-inner-col{column-gap:var(--global-kb-gap-sm, 1rem);}.kadence-column154_c32b61-b4 > .kt-inside-inner-col{flex-direction:column;}.kadence-column154_c32b61-b4 > .kt-inside-inner-col > .aligncenter{width:100%;}.kadence-column154_c32b61-b4 > .kt-inside-inner-col:before{opacity:1;background-image:linear-gradient(135deg,rgb(224,224,224) 0%,rgb(255,255,255) 84%);}@media all and (max-width: 1024px){.kadence-column154_c32b61-b4 > .kt-inside-inner-col{border-top:1px solid #e4e4e4;border-right:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;border-left:1px solid #e4e4e4;flex-direction:column;justify-content:center;}}@media all and (max-width: 767px){.kadence-column154_c32b61-b4 > .kt-inside-inner-col{border-top:1px solid #e4e4e4;border-right:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;border-left:1px solid #e4e4e4;flex-direction:column;justify-content:center;}}.wp-block-kadence-column.kb-section-dir-horizontal > .kt-inside-inner-col > .kt-info-box154_54f89d-09 .kt-blocks-info-box-link-wrap{max-width:unset;}.kt-info-box154_54f89d-09 .kt-blocks-info-box-link-wrap{border-top-left-radius:0px;border-top-right-radius:0px;border-bottom-right-radius:0px;border-bottom-left-radius:0px;background:rgba(255,255,255,0);margin-left:-14px;}.kt-info-box154_54f89d-09.wp-block-kadence-infobox{max-width:100%;}.kt-info-box154_54f89d-09 .kadence-info-box-image-inner-intrisic-container{max-width:45px;}.kt-info-box154_54f89d-09 .kadence-info-box-image-inner-intrisic-container .kadence-info-box-image-intrisic{padding-bottom:100%;width:45px;height:0px;max-width:100%;}.kt-info-box154_54f89d-09 .kadence-info-box-icon-container .kt-info-svg-icon, .kt-info-box154_54f89d-09 .kt-info-svg-icon-flip, .kt-info-box154_54f89d-09 .kt-blocks-info-box-number{font-size:50px;}.kt-info-box154_54f89d-09 .kt-blocks-info-box-media{border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;margin-top:0px;margin-right:12px;margin-bottom:0px;margin-left:0px;}.kt-info-box154_54f89d-09 .kt-infobox-textcontent h2.kt-blocks-info-box-title{color:#747474;font-size:18px;text-transform:uppercase;font-weight:bold;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;}.kadence-column154_84146d-7e > .kt-inside-inner-col{display:flex;}.kadence-column154_84146d-7e > .kt-inside-inner-col{padding-top:15px;padding-right:15px;padding-bottom:15px;padding-left:15px;}.kadence-column154_84146d-7e > .kt-inside-inner-col,.kadence-column154_84146d-7e > .kt-inside-inner-col:before{border-top-left-radius:20px;border-top-right-radius:20px;border-bottom-right-radius:20px;border-bottom-left-radius:20px;}.kadence-column154_84146d-7e > .kt-inside-inner-col{column-gap:var(--global-kb-gap-sm, 1rem);}.kadence-column154_84146d-7e > .kt-inside-inner-col{flex-direction:column;justify-content:space-between;}.kadence-column154_84146d-7e > .kt-inside-inner-col > .aligncenter{width:100%;}.kt-row-column-wrap > .kadence-column154_84146d-7e{align-self:center;}.kt-inner-column-height-full:not(.kt-has-1-columns) > .wp-block-kadence-column.kadence-column154_84146d-7e{align-self:auto;}.kt-inner-column-height-full:not(.kt-has-1-columns) > .wp-block-kadence-column.kadence-column154_84146d-7e > .kt-inside-inner-col{flex-direction:column;justify-content:space-between;}.kadence-column154_84146d-7e > .kt-inside-inner-col{background-image:url('http://exames.contraprova.com.br/wp-content/uploads/2025/04/bg-home.jpg');background-size:cover;background-position:center center;background-attachment:scroll;background-repeat:no-repeat;}.kadence-column154_84146d-7e > .kt-inside-inner-col:before{opacity:0.39;background-color:#000000;}@media all and (max-width: 1024px){.kt-row-column-wrap > .kadence-column154_84146d-7e{align-self:center;}}@media all and (max-width: 1024px){.kt-inner-column-height-full:not(.kt-has-1-columns) > .wp-block-kadence-column.kadence-column154_84146d-7e{align-self:auto;}}@media all and (max-width: 1024px){.kt-inner-column-height-full:not(.kt-has-1-columns) > .wp-block-kadence-column.kadence-column154_84146d-7e > .kt-inside-inner-col{flex-direction:column;justify-content:space-between;}}@media all and (max-width: 1024px){.kadence-column154_84146d-7e > .kt-inside-inner-col{flex-direction:column;justify-content:space-between;}}@media all and (max-width: 767px){.kadence-column154_84146d-7e > .kt-inside-inner-col{min-height:248px;flex-direction:column;justify-content:space-between;}.kt-row-column-wrap > .kadence-column154_84146d-7e{align-self:center;}.kt-inner-column-height-full:not(.kt-has-1-columns) > .wp-block-kadence-column.kadence-column154_84146d-7e{align-self:auto;}.kt-inner-column-height-full:not(.kt-has-1-columns) > .wp-block-kadence-column.kadence-column154_84146d-7e > .kt-inside-inner-col{flex-direction:column;justify-content:space-between;}}.wp-block-kadence-advancedbtn.kb-btns154_4c31fa-bf{justify-content:flex-end;}ul.menu .wp-block-kadence-advancedbtn .kb-btn154_636cb8-67.kb-button{width:initial;}.wp-block-kadence-advancedbtn .kb-btn154_636cb8-67.kb-button{color:#ffffff;background:#07a9dc;border-top-left-radius:30px;border-top-right-radius:30px;border-bottom-right-radius:30px;border-bottom-left-radius:30px;}.wp-block-kadence-advancedbtn .kb-btn154_636cb8-67.kb-button:hover, .wp-block-kadence-advancedbtn .kb-btn154_636cb8-67.kb-button:focus{background:#0099cc;}.kadence-column154_dc0afe-6b > .kt-inside-inner-col{display:flex;}.kadence-column154_dc0afe-6b > .kt-inside-inner-col{padding-top:15px;padding-right:15px;padding-bottom:15px;padding-left:15px;}.kadence-column154_dc0afe-6b > .kt-inside-inner-col{border-top:1px solid #e4e4e4;border-right:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;border-left:1px solid #e4e4e4;}.kadence-column154_dc0afe-6b > .kt-inside-inner-col,.kadence-column154_dc0afe-6b > .kt-inside-inner-col:before{border-top-left-radius:20px;border-top-right-radius:20px;border-bottom-right-radius:20px;border-bottom-left-radius:20px;}.kadence-column154_dc0afe-6b > .kt-inside-inner-col{column-gap:var(--global-kb-gap-sm, 1rem);}.kadence-column154_dc0afe-6b > .kt-inside-inner-col{flex-direction:column;justify-content:space-between;}.kadence-column154_dc0afe-6b > .kt-inside-inner-col > .aligncenter{width:100%;}.kt-row-column-wrap > .kadence-column154_dc0afe-6b{align-self:center;}.kt-inner-column-height-full:not(.kt-has-1-columns) > .wp-block-kadence-column.kadence-column154_dc0afe-6b{align-self:auto;}.kt-inner-column-height-full:not(.kt-has-1-columns) > .wp-block-kadence-column.kadence-column154_dc0afe-6b > .kt-inside-inner-col{flex-direction:column;justify-content:space-between;}.kadence-column154_dc0afe-6b > .kt-inside-inner-col{background-image:url('http://exames.contraprova.com.br/wp-content/uploads/2025/04/bg-home.jpg');background-size:contain;background-position:center center;background-attachment:scroll;background-repeat:no-repeat;}.kadence-column154_dc0afe-6b > .kt-inside-inner-col:before{opacity:1;background-image:linear-gradient(135deg,rgb(224,224,224) 0%,rgb(255,255,255) 84%);}@media all and (max-width: 1024px){.kadence-column154_dc0afe-6b > .kt-inside-inner-col{border-top:1px solid #e4e4e4;border-right:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;border-left:1px solid #e4e4e4;flex-direction:column;justify-content:space-between;}}@media all and (max-width: 1024px){.kt-row-column-wrap > .kadence-column154_dc0afe-6b{align-self:center;}}@media all and (max-width: 1024px){.kt-inner-column-height-full:not(.kt-has-1-columns) > .wp-block-kadence-column.kadence-column154_dc0afe-6b{align-self:auto;}}@media all and (max-width: 1024px){.kt-inner-column-height-full:not(.kt-has-1-columns) > .wp-block-kadence-column.kadence-column154_dc0afe-6b > .kt-inside-inner-col{flex-direction:column;justify-content:space-between;}}@media all and (max-width: 767px){.kadence-column154_dc0afe-6b > .kt-inside-inner-col{border-top:1px solid #e4e4e4;border-right:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;border-left:1px solid #e4e4e4;flex-direction:column;justify-content:space-between;}.kt-row-column-wrap > .kadence-column154_dc0afe-6b{align-self:center;}.kt-inner-column-height-full:not(.kt-has-1-columns) > .wp-block-kadence-column.kadence-column154_dc0afe-6b{align-self:auto;}.kt-inner-column-height-full:not(.kt-has-1-columns) > .wp-block-kadence-column.kadence-column154_dc0afe-6b > .kt-inside-inner-col{flex-direction:column;justify-content:space-between;}}.wp-block-kadence-column.kb-section-dir-horizontal > .kt-inside-inner-col > .kt-info-box154_be7a89-93 .kt-blocks-info-box-link-wrap{max-width:unset;}.kt-info-box154_be7a89-93 .kt-blocks-info-box-link-wrap{border-top-left-radius:0px;border-top-right-radius:0px;border-bottom-right-radius:0px;border-bottom-left-radius:0px;background:rgba(255,255,255,0);margin-left:-14px;}.kt-info-box154_be7a89-93.wp-block-kadence-infobox{max-width:100%;}.kt-info-box154_be7a89-93 .kadence-info-box-image-inner-intrisic-container{max-width:45px;}.kt-info-box154_be7a89-93 .kadence-info-box-image-inner-intrisic-container .kadence-info-box-image-intrisic{padding-bottom:100%;width:45px;height:0px;max-width:100%;}.kt-info-box154_be7a89-93 .kadence-info-box-icon-container .kt-info-svg-icon, .kt-info-box154_be7a89-93 .kt-info-svg-icon-flip, .kt-info-box154_be7a89-93 .kt-blocks-info-box-number{font-size:50px;}.kt-info-box154_be7a89-93 .kt-blocks-info-box-media{border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;margin-top:0px;margin-right:12px;margin-bottom:0px;margin-left:0px;}.kt-info-box154_be7a89-93 .kt-infobox-textcontent h2.kt-blocks-info-box-title{color:#747474;font-size:18px;text-transform:uppercase;font-weight:bold;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;}.kadence-column154_866151-06 > .kt-inside-inner-col{padding-top:20px;padding-right:10px;padding-bottom:20px;padding-left:10px;}.kadence-column154_866151-06 > .kt-inside-inner-col{column-gap:var(--global-kb-gap-sm, 1rem);}.kadence-column154_866151-06 > .kt-inside-inner-col{flex-direction:column;}.kadence-column154_866151-06 > .kt-inside-inner-col > .aligncenter{width:100%;}.kadence-column154_866151-06 > .kt-inside-inner-col{background-color:#07a9dc;background-image:url('http://exames.contraprova.com.br/wp-content/uploads/2025/04/Foto-23-11-2022-11-13-18-7.png');background-size:cover;background-position:center center;background-attachment:scroll;background-repeat:no-repeat;}.kadence-column154_866151-06 > .kt-inside-inner-col:before{background-color:#0074d9;}@media all and (max-width: 1024px){.kadence-column154_866151-06 > .kt-inside-inner-col{flex-direction:column;justify-content:center;}}@media all and (max-width: 767px){.kadence-column154_866151-06 > .kt-inside-inner-col{flex-direction:column;justify-content:center;}}.kb-row-layout-id154_1850ab-1a > .kt-row-column-wrap{max-width:900px;margin-left:auto;margin-right:auto;grid-template-columns:minmax(0, 1fr);}@media all and (max-width: 767px){.kb-row-layout-id154_1850ab-1a > .kt-row-column-wrap{grid-template-columns:minmax(0, 1fr);}}.kadence-column154_9cf03e-5c > .kt-inside-inner-col{padding-top:20px;padding-right:20px;padding-bottom:20px;padding-left:20px;}.kadence-column154_9cf03e-5c > .kt-inside-inner-col,.kadence-column154_9cf03e-5c > .kt-inside-inner-col:before{border-top-left-radius:70px;border-top-right-radius:70px;border-bottom-right-radius:70px;border-bottom-left-radius:70px;}.kadence-column154_9cf03e-5c > .kt-inside-inner-col{column-gap:var(--global-kb-gap-sm, 1rem);}.kadence-column154_9cf03e-5c > .kt-inside-inner-col{flex-direction:column;}.kadence-column154_9cf03e-5c > .kt-inside-inner-col > .aligncenter{width:100%;}.kadence-column154_9cf03e-5c > .kt-inside-inner-col:before{opacity:1;background-color:#ffffff;}@media all and (max-width: 1024px){.kadence-column154_9cf03e-5c > .kt-inside-inner-col{flex-direction:column;justify-content:center;}}@media all and (max-width: 767px){.kadence-column154_9cf03e-5c > .kt-inside-inner-col,.kadence-column154_9cf03e-5c > .kt-inside-inner-col:before{border-top-left-radius:20px;border-top-right-radius:20px;border-bottom-right-radius:20px;border-bottom-left-radius:20px;}.kadence-column154_9cf03e-5c > .kt-inside-inner-col{flex-direction:column;justify-content:center;}}.wp-block-kadence-advancedheading.kt-adv-heading154_983d0e-c9, .wp-block-kadence-advancedheading.kt-adv-heading154_983d0e-c9[data-kb-block="kb-adv-heading154_983d0e-c9"]{text-align:center;font-size:25px;font-weight:bold;}.wp-block-kadence-advancedheading.kt-adv-heading154_983d0e-c9 mark.kt-highlight, .wp-block-kadence-advancedheading.kt-adv-heading154_983d0e-c9[data-kb-block="kb-adv-heading154_983d0e-c9"] mark.kt-highlight{-webkit-box-decoration-break:clone;box-decoration-break:clone;}@media all and (max-width: 767px){.wp-block-kadence-advancedheading.kt-adv-heading154_983d0e-c9, .wp-block-kadence-advancedheading.kt-adv-heading154_983d0e-c9[data-kb-block="kb-adv-heading154_983d0e-c9"]{font-size:17px;}}ul.menu .wp-block-kadence-advancedbtn .kb-btn154_3de387-f9.kb-button{width:initial;}.wp-block-kadence-advancedbtn .kb-btn154_3de387-f9.kb-button{background:#00498b;border-top-left-radius:20px;border-top-right-radius:20px;border-bottom-right-radius:20px;border-bottom-left-radius:20px;padding-right:28px;padding-left:28px;}@media all and (max-width: 1024px){.wp-block-kadence-advancedbtn .kb-btn154_3de387-f9.kb-button{font-size:var(--global-kb-font-size-md, 1.25rem);}}@media all and (max-width: 767px){.wp-block-kadence-advancedbtn .kb-btn154_3de387-f9.kb-button{font-size:16px;}}.kb-row-layout-id154_0d574c-0a > .kt-row-column-wrap{max-width:1370px;margin-left:auto;margin-right:auto;padding-top:48px;padding-right:10px;padding-bottom:48px;padding-left:10px;grid-template-columns:minmax(0, 1fr);}@media all and (max-width: 767px){.kb-row-layout-id154_0d574c-0a > .kt-row-column-wrap{grid-template-columns:minmax(0, 1fr);}}.kadence-column154_f16e31-1c > .kt-inside-inner-col{padding-top:30px;padding-right:20px;padding-bottom:30px;padding-left:90px;}.kadence-column154_f16e31-1c > .kt-inside-inner-col{border-top:1px solid #e4e4e4;border-right:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;border-left:1px solid #e4e4e4;}.kadence-column154_f16e31-1c > .kt-inside-inner-col,.kadence-column154_f16e31-1c > .kt-inside-inner-col:before{border-top-left-radius:20px;border-top-right-radius:20px;border-bottom-right-radius:20px;border-bottom-left-radius:20px;}.kadence-column154_f16e31-1c > .kt-inside-inner-col{column-gap:var(--global-kb-gap-sm, 1rem);}.kadence-column154_f16e31-1c > .kt-inside-inner-col{flex-direction:column;}.kadence-column154_f16e31-1c > .kt-inside-inner-col > .aligncenter{width:100%;}.kadence-column154_f16e31-1c > .kt-inside-inner-col:before{background-image:linear-gradient(135deg,rgb(224,224,224) 2%,rgb(255,255,255) 100%);}@media all and (max-width: 1024px){.kadence-column154_f16e31-1c > .kt-inside-inner-col{border-top:1px solid #e4e4e4;border-right:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;border-left:1px solid #e4e4e4;flex-direction:column;justify-content:center;}}@media all and (max-width: 767px){.kadence-column154_f16e31-1c > .kt-inside-inner-col{padding-top:var(--global-kb-spacing-xs, 1rem);padding-right:var(--global-kb-spacing-xs, 1rem);padding-bottom:var(--global-kb-spacing-xs, 1rem);padding-left:var(--global-kb-spacing-xs, 1rem);border-top:1px solid #e4e4e4;border-right:1px solid #e4e4e4;border-bottom:1px solid #e4e4e4;border-left:1px solid #e4e4e4;flex-direction:column;justify-content:center;}}.wp-block-kadence-column.kb-section-dir-horizontal > .kt-inside-inner-col > .kt-info-box154_54ef24-fa .kt-blocks-info-box-link-wrap{max-width:unset;}.kt-info-box154_54ef24-fa .kt-blocks-info-box-link-wrap{border-top-left-radius:0px;border-top-right-radius:0px;border-bottom-right-radius:0px;border-bottom-left-radius:0px;background:rgba(255,255,255,0);margin-left:-14px;}.kt-info-box154_54ef24-fa.wp-block-kadence-infobox{max-width:100%;}.kt-info-box154_54ef24-fa .kadence-info-box-image-inner-intrisic-container{max-width:45px;}.kt-info-box154_54ef24-fa .kadence-info-box-image-inner-intrisic-container .kadence-info-box-image-intrisic{padding-bottom:100%;width:45px;height:0px;max-width:100%;}.kt-info-box154_54ef24-fa .kadence-info-box-icon-container .kt-info-svg-icon, .kt-info-box154_54ef24-fa .kt-info-svg-icon-flip, .kt-info-box154_54ef24-fa .kt-blocks-info-box-number{font-size:50px;}.kt-info-box154_54ef24-fa .kt-blocks-info-box-media{border-top-width:0px;border-right-width:0px;border-bottom-width:0px;border-left-width:0px;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;margin-top:0px;margin-right:12px;margin-bottom:0px;margin-left:0px;}.kt-info-box154_54ef24-fa .kt-infobox-textcontent h2.kt-blocks-info-box-title{color:#6b6b6b;font-size:18px;text-transform:uppercase;font-weight:bold;padding-top:0px;padding-right:0px;padding-bottom:0px;padding-left:0px;margin-top:0px;margin-right:0px;margin-bottom:0px;margin-left:0px;}</style>
+      <style id="kadence_blocks_palette_css">:root .has-kb-palette-1-color{color:#0074d9}:root .has-kb-palette-1-background-color{background-color:#0074d9}:root .has-kb-palette-12-color{color:#ffffff}:root .has-kb-palette-12-background-color{background-color:#ffffff}:root .has-kb-palette-2-color{color:#07a9dc}:root .has-kb-palette-2-background-color{background-color:#07a9dc}:root .has-kb-palette-3-color{color:#0099cc}:root .has-kb-palette-3-background-color{background-color:#0099cc}:root .has-kb-palette-4-color{color:#00498b}:root .has-kb-palette-4-background-color{background-color:#00498b}:root .has-kb-palette-5-color{color:#888888}:root .has-kb-palette-5-background-color{background-color:#888888}</style>
+      <script id="jquery-core-js-extra" type="litespeed/javascript">var pysFacebookRest={"restApiUrl":"https:\/\/exames.contraprova.com.br\/wp-json\/pys-facebook\/v1\/event","debug":""}</script> <script type="litespeed/javascript" data-src="https://exames.contraprova.com.br/wp-includes/js/jquery/jquery.min.js" id="jquery-core-js"></script> <script id="woocommerce-js-extra" type="litespeed/javascript">var woocommerce_params={"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","i18n_password_show":"Mostrar senha","i18n_password_hide":"Ocultar senha"}</script> <script id="wc-cart-fragments-js-extra" type="litespeed/javascript">var wc_cart_fragments_params={"ajax_url":"\/wp-admin\/admin-ajax.php","wc_ajax_url":"\/?wc-ajax=%%endpoint%%","cart_hash_key":"wc_cart_hash_ffb4b57363c66ec137daab47d2dcc591","fragment_name":"wc_fragments_ffb4b57363c66ec137daab47d2dcc591","request_timeout":"5000"}</script> <script id="pys-js-extra" type="litespeed/javascript">var pysOptions={"staticEvents":{"facebook":{"init_event":[{"delay":0,"type":"static","ajaxFire":!1,"name":"PageView","pixelIds":["3860450574019921"],"eventID":"7ecd248c-bb0b-407b-b821-c23fb77ab34c","params":{"page_title":"Home","post_type":"page","post_id":154,"plugin":"PixelYourSite","user_role":"guest","event_url":"exames.contraprova.com.br\/"},"e_id":"init_event","ids":[],"hasTimeWindow":!1,"timeWindow":0,"woo_order":"","edd_order":""}]}},"dynamicEvents":[],"triggerEvents":[],"triggerEventTypes":[],"facebook":{"pixelIds":["3860450574019921"],"advancedMatching":[],"advancedMatchingEnabled":!0,"removeMetadata":!0,"wooVariableAsSimple":!1,"serverApiEnabled":!0,"wooCRSendFromServer":!1,"send_external_id":null,"enabled_medical":!1,"do_not_track_medical_param":["event_url","post_title","page_title","landing_page","content_name","categories","category_name","tags"],"meta_ldu":!1},"debug":"","siteUrl":"https:\/\/exames.contraprova.com.br","ajaxUrl":"https:\/\/exames.contraprova.com.br\/wp-admin\/admin-ajax.php","ajax_event":"fc10d8b37a","enable_remove_download_url_param":"1","cookie_duration":"7","last_visit_duration":"60","enable_success_send_form":"","ajaxForServerEvent":"1","ajaxForServerStaticEvent":"1","useSendBeacon":"1","send_external_id":"1","external_id_expire":"180","track_cookie_for_subdomains":"1","google_consent_mode":"1","gdpr":{"ajax_enabled":!1,"all_disabled_by_api":!1,"facebook_disabled_by_api":!1,"analytics_disabled_by_api":!1,"google_ads_disabled_by_api":!1,"pinterest_disabled_by_api":!1,"bing_disabled_by_api":!1,"externalID_disabled_by_api":!1,"facebook_prior_consent_enabled":!0,"analytics_prior_consent_enabled":!0,"google_ads_prior_consent_enabled":null,"pinterest_prior_consent_enabled":!0,"bing_prior_consent_enabled":!0,"cookiebot_integration_enabled":!1,"cookiebot_facebook_consent_category":"marketing","cookiebot_analytics_consent_category":"statistics","cookiebot_tiktok_consent_category":"marketing","cookiebot_google_ads_consent_category":"marketing","cookiebot_pinterest_consent_category":"marketing","cookiebot_bing_consent_category":"marketing","consent_magic_integration_enabled":!1,"real_cookie_banner_integration_enabled":!1,"cookie_notice_integration_enabled":!1,"cookie_law_info_integration_enabled":!1,"analytics_storage":{"enabled":!0,"value":"granted","filter":!1},"ad_storage":{"enabled":!0,"value":"granted","filter":!1},"ad_user_data":{"enabled":!0,"value":"granted","filter":!1},"ad_personalization":{"enabled":!0,"value":"granted","filter":!1}},"cookie":{"disabled_all_cookie":!1,"disabled_start_session_cookie":!1,"disabled_advanced_form_data_cookie":!1,"disabled_landing_page_cookie":!1,"disabled_first_visit_cookie":!1,"disabled_trafficsource_cookie":!1,"disabled_utmTerms_cookie":!1,"disabled_utmId_cookie":!1},"tracking_analytics":{"TrafficSource":"direct","TrafficLanding":"https:\/\/exames.contraprova.com.br\/","TrafficUtms":[],"TrafficUtmsId":[]},"GATags":{"ga_datalayer_type":"default","ga_datalayer_name":"dataLayerPYS"},"woo":{"enabled":!0,"enabled_save_data_to_orders":!0,"addToCartOnButtonEnabled":!0,"addToCartOnButtonValueEnabled":!0,"addToCartOnButtonValueOption":"price","singleProductId":null,"removeFromCartSelector":"form.woocommerce-cart-form .remove","addToCartCatchMethod":"add_cart_hook","is_order_received_page":!1,"containOrderId":!1},"edd":{"enabled":!1},"cache_bypass":"1763238275"}</script> 
+      <link rel="https://api.w.org/" href="https://exames.contraprova.com.br/wp-json/" />
+      <link rel="alternate" title="JSON" type="application/json" href="https://exames.contraprova.com.br/wp-json/wp/v2/pages/154" />
+      <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://exames.contraprova.com.br/xmlrpc.php?rsd" />
+      <meta name="generator" content="WordPress 6.8.3" />
+      <meta name="generator" content="WooCommerce 10.2.2" />
+      <link rel="canonical" href="https://exames.contraprova.com.br/" />
+      <link rel='shortlink' href='https://exames.contraprova.com.br/' />
+      <link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://exames.contraprova.com.br/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fexames.contraprova.com.br%2F" />
+      <link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://exames.contraprova.com.br/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fexames.contraprova.com.br%2F&#038;format=xml" />
+      <noscript>
+         <style>.woocommerce-product-gallery{ opacity: 1 !important; }</style>
+      </noscript>
+      <link rel="icon" href="https://exames.contraprova.com.br/wp-content/uploads/2025/04/logo-contraprova-150x66.png" sizes="32x32" />
+      <link rel="icon" href="https://exames.contraprova.com.br/wp-content/uploads/2025/04/logo-contraprova.png" sizes="192x192" />
+      <link rel="apple-touch-icon" href="https://exames.contraprova.com.br/wp-content/uploads/2025/04/logo-contraprova.png" />
+      <meta name="msapplication-TileImage" content="https://exames.contraprova.com.br/wp-content/uploads/2025/04/logo-contraprova.png" />
+      <script type="litespeed/javascript">(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=!0;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)})(window,document,'script','dataLayer','GTM-P4CW9VNZ')</script> 
+   </head>
+   <body class="home wp-singular page-template page-template-page-gutemberg page-template-page-gutemberg-php page page-id-154 wp-custom-logo wp-embed-responsive wp-theme-storefront wp-child-theme-storefront-child theme-storefront woocommerce-no-js storefront-align-wide right-sidebar woocommerce-active">
+      <noscript><iframe data-lazyloaded="1" src="about:blank" data-litespeed-src="https://www.googletagmanager.com/ns.html?id=GTM-P4CW9VNZ"
+         height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+      <div class="off-canvas__backdrop js__close-menu"></div>
+      <div class="off-canvas">
+         <span class="off-canvas__close js__close-menu">fechar</span>
+         <a class="logo__off-canvas" href="https://exames.contraprova.com.br" rel="home">
+         <img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjIiIGhlaWdodD0iNjYiIHZpZXdCb3g9IjAgMCAxNjIgNjYiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiNjZmQ0ZGI7ZmlsbC1vcGFjaXR5OiAwLjE7Ii8+PC9zdmc+" width="162" height="66" data-src="https://exames.contraprova.com.br/wp-content/themes/storefront-child/static/images/logo-contraprova.png" alt="Logo Contraprova">
+         </a>
+         <ul id="menu-menu-mobile" class="off-canvas__menu">
+            <li id="menu-item-528" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-154 current_page_item menu-item-528"><a href="https://exames.contraprova.com.br/" aria-current="page">Início</a></li>
+            <li id="menu-item-530" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-530"><a href="https://exames.contraprova.com.br/exame-para-cnh/">Toxicológico para CNH</a></li>
+            <li id="menu-item-532" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-532"><a href="https://exames.contraprova.com.br/exames-toxicologicos-para-empresas/">Toxicológico para Empresas</a></li>
+            <li id="menu-item-531" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-531"><a href="https://exames.contraprova.com.br/exames-para-concursos/">Toxicológico para Concursos</a></li>
+            <li id="menu-item-535" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-535"><a href="https://exames.contraprova.com.br/category/noticias/">Notícias</a></li>
+            <li id="menu-item-534" class="menu-item menu-item-type-post_type_archive menu-item-object-faq menu-item-534"><a href="https://exames.contraprova.com.br/faqs/">Perguntas frequentes</a></li>
+            <li id="menu-item-546" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-546"><a href="https://exames.contraprova.com.br/quem-somos/">Quem somos</a></li>
+            <li id="menu-item-529" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-529"><a href="https://exames.contraprova.com.br/contato/">Contato</a></li>
+         </ul>
+      </div>
+      <header class="header">
+         <div class="container header-container">
+            <div class="header-container__hamburguer">
+               <div class="hamburguer"></div>
+            </div>
+            <div class="header-container__logo">
+               <a class="logo" href="https://exames.contraprova.com.br" rel="home">
+               <img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjIiIGhlaWdodD0iNjYiIHZpZXdCb3g9IjAgMCAxNjIgNjYiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiNjZmQ0ZGI7ZmlsbC1vcGFjaXR5OiAwLjE7Ii8+PC9zdmc+" width="162" height="66" data-src="https://exames.contraprova.com.br/wp-content/themes/storefront-child/static/images/logo-contraprova.png" alt="Logo Contraprova">
+               </a>
+            </div>
+            <div class="header-container__menu">
+               <ul id="menu-principal" class="dropdown is-navbar">
+                  <li id="menu-item-134" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-134"><a href="https://exames.contraprova.com.br/exame-para-cnh/">Toxicológico para CNH</a></li>
+                  <li id="menu-item-509" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-509"><a href="https://exames.contraprova.com.br/exames-para-concursos/">Toxicológico para Concursos</a></li>
+                  <li id="menu-item-510" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-510"><a href="https://exames.contraprova.com.br/exames-toxicologicos-para-empresas/">Toxicológico para Empresas</a></li>
+                  <li id="menu-item-511" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-511">
+                     <a href="#">Institucional</a>
+                     <ul class="sub-menu">
+                        <li id="menu-item-551" class="menu-item menu-item-type-post_type_archive menu-item-object-faq menu-item-551"><a href="https://exames.contraprova.com.br/faqs/">Perguntas frequentes</a></li>
+                        <li id="menu-item-600" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-600"><a href="https://exames.contraprova.com.br/registro-de-exame-toxicologico-no-esocial/">Registro de Exame Toxicológico no eSocial</a></li>
+                        <li id="menu-item-547" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-547"><a href="https://exames.contraprova.com.br/quem-somos/">Quem somos</a></li>
+                        <li id="menu-item-512" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-512"><a href="https://exames.contraprova.com.br/contato/">Contato</a></li>
+                     </ul>
+                  </li>
+               </ul>
+            </div>
+            <div class="header-container__search">
+               <form role="search" method="get" class="search-form" action="https://exames.contraprova.com.br/">
+                  <input
+                     type="search"
+                     class="search-form__input"
+                     name="s"
+                     placeholder="COMO PODEMOS TE AJUDAR?"
+                     value=""
+                     />
+                  <button type="submit" class="search-form__submit" aria-label="Buscar">
+                  <img data-lazyloaded="1" src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-src="https://exames.contraprova.com.br/wp-content/themes/storefront-child/static/images/icons/search.svg" alt="Pesquisar">
+                  </button>
+               </form>
+            </div>
+         </div>
+         <div class="header-separator" ></div>
+      </header>
+      <div class="wp-block-kadence-column kadence-column154_88398a-30">
+         <div class="kt-inside-inner-col">
+            <div class=" ">
+               <div class="slider-top-home" style="background-color: #07a9dc">
+                  <div class="container slider-top-home__container">
+                     <div class="slider-top-home__item  is-active" style="background-color: #07a9dc">
+                        <div class="slider-top-home__item-info">
+                           <a href="https://exames.contraprova.com.br/exame-para-cnh/" >
+                              <div class="slider-top-home__icon-container">
+                                 <img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NyIgaGVpZ2h0PSI0NyIgdmlld0JveD0iMCAwIDQ3IDQ3Ij48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==" width="47" height="47" decoding="async" data-src="https://exames.contraprova.com.br/wp-content/uploads/2025/07/toxicologico-cnh.png">
+                              </div>
+                              <h2 class="slider-top-home__title">
+                                 <span class="slider-top-home__title-1">Toxicológico</span>
+                                 <span class="slider-top-home__title-2">Para cnh</span>
+                              </h2>
+                           </a>
+                           <a href="https://exames.contraprova.com.br/exame-para-cnh/" class="slider-top-home__toogle">
+                              <div class="slider-top-home__content">
+                                 <div>
+                                    <img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNDIiIGhlaWdodD0iMjYyIiB2aWV3Qm94PSIwIDAgMzQyIDI2MiI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGw6I2NmZDRkYjtmaWxsLW9wYWNpdHk6IDAuMTsiLz48L3N2Zz4=" width="342" height="262" decoding="async" data-src="https://exames.contraprova.com.br/wp-content/uploads/2025/07/cnh.png">
+                                 </div>
+                              </div>
+                           </a>
+                           <div class="slider-top-home__button-container">
+                              <a
+                                 href="https://exames.contraprova.com.br/exame-para-cnh/"
+                                 class="btn__exame is-medium  slider-top-home__btn"
+                                 style="color: #00498b; background-color: #ffffff !important; border: 0 !important"
+                                 >
+                              <span class="slider-top-home__btn__text-default">Saiba mais</span>
+                              <span class="slider-top-home__btn__text-alternative">Compre agora</span>
+                              </a>
+                           </div>
+                        </div>
+                        <a href="https://exames.contraprova.com.br/exame-para-cnh/" class="slider-top-home__item-bg is-desktop" style="background-image: url(https://exames.contraprova.com.br/wp-content/uploads/2025/07/bg-slider-cnh.jpg)">
+                        </a>
+                        <a href="https://exames.contraprova.com.br/exame-para-cnh/" class="slider-top-home__item-bg is-mobile" style="background-image: url(https://exames.contraprova.com.br/wp-content/uploads/2025/07/bg-slider-cnh__mobile.jpg)">
+                        </a>
+                     </div>
+                     <div class="slider-top-home__item  " style="background-color: #00498b">
+                        <div class="slider-top-home__item-info">
+                           <a href="https://exames.contraprova.com.br/exames-toxicologicos-para-empresas/" >
+                              <div class="slider-top-home__icon-container">
+                                 <img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NyIgaGVpZ2h0PSI0NyIgdmlld0JveD0iMCAwIDQ3IDQ3Ij48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==" width="47" height="47" decoding="async" data-src="https://exames.contraprova.com.br/wp-content/uploads/2025/07/toxicologico-empresa.png">
+                              </div>
+                              <h2 class="slider-top-home__title">
+                                 <span class="slider-top-home__title-1">Toxicológico</span>
+                                 <span class="slider-top-home__title-2">Para empresas</span>
+                              </h2>
+                           </a>
+                           <a href="https://exames.contraprova.com.br/exames-toxicologicos-para-empresas/" class="slider-top-home__toogle">
+                              <div class="slider-top-home__content">
+                                 <div>
+                                    <img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNDIiIGhlaWdodD0iMjYyIiB2aWV3Qm94PSIwIDAgMzQyIDI2MiI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGw6I2NmZDRkYjtmaWxsLW9wYWNpdHk6IDAuMTsiLz48L3N2Zz4=" width="342" height="262" decoding="async" data-src="https://exames.contraprova.com.br/wp-content/uploads/2025/07/empresas.png">
+                                 </div>
+                              </div>
+                           </a>
+                           <div class="slider-top-home__button-container">
+                              <a
+                                 href="https://exames.contraprova.com.br/exames-toxicologicos-para-empresas/"
+                                 class="btn__exame is-medium  slider-top-home__btn"
+                                 style="color: #fff; background-color: #07a9dc !important; border: 0 !important"
+                                 >
+                              <span class="slider-top-home__btn__text-default">Saiba mais</span>
+                              <span class="slider-top-home__btn__text-alternative">Compre agora</span>
+                              </a>
+                           </div>
+                        </div>
+                        <a href="https://exames.contraprova.com.br/exames-toxicologicos-para-empresas/" class="slider-top-home__item-bg is-desktop" style="background-image: url(https://exames.contraprova.com.br/wp-content/uploads/2025/07/bg-slider-empresa.jpg)">
+                        </a>
+                        <a href="https://exames.contraprova.com.br/exames-toxicologicos-para-empresas/" class="slider-top-home__item-bg is-mobile" style="background-image: url(https://exames.contraprova.com.br/wp-content/uploads/2025/07/bg-slider-empresa__mobile.jpg)">
+                        </a>
+                     </div>
+                     <div class="slider-top-home__item  " style="background-color: #00e58c">
+                        <div class="slider-top-home__item-info">
+                           <a href="https://exames.contraprova.com.br/exames-para-concursos/" >
+                              <div class="slider-top-home__icon-container">
+                                 <img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NyIgaGVpZ2h0PSI0NyIgdmlld0JveD0iMCAwIDQ3IDQ3Ij48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==" width="47" height="47" decoding="async" data-src="https://exames.contraprova.com.br/wp-content/uploads/2025/07/toxicologico-concursos.png">
+                              </div>
+                              <h2 class="slider-top-home__title">
+                                 <span class="slider-top-home__title-1">Toxicológico</span>
+                                 <span class="slider-top-home__title-2">Para concursos</span>
+                              </h2>
+                           </a>
+                           <a href="https://exames.contraprova.com.br/exames-para-concursos/" class="slider-top-home__toogle">
+                              <div class="slider-top-home__content">
+                                 <div>
+                                    <img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNDIiIGhlaWdodD0iMjYyIiB2aWV3Qm94PSIwIDAgMzQyIDI2MiI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGw6I2NmZDRkYjtmaWxsLW9wYWNpdHk6IDAuMTsiLz48L3N2Zz4=" width="342" height="262" decoding="async" data-src="https://exames.contraprova.com.br/wp-content/uploads/2025/07/concursos.png">
+                                 </div>
+                              </div>
+                           </a>
+                           <div class="slider-top-home__button-container">
+                              <a
+                                 href="https://exames.contraprova.com.br/exames-para-concursos/"
+                                 class="btn__exame is-medium  slider-top-home__btn"
+                                 style="color: #fff; background-color: #00498b !important; border: 0 !important"
+                                 >
+                              <span class="slider-top-home__btn__text-default">Saiba mais</span>
+                              <span class="slider-top-home__btn__text-alternative">Compre agora</span>
+                              </a>
+                           </div>
+                        </div>
+                        <a href="https://exames.contraprova.com.br/exames-para-concursos/" class="slider-top-home__item-bg is-desktop" style="background-image: url(https://exames.contraprova.com.br/wp-content/uploads/2025/07/bg-slider-concurso-1.jpg)">
+                        </a>
+                        <a href="https://exames.contraprova.com.br/exames-para-concursos/" class="slider-top-home__item-bg is-mobile" style="background-image: url(https://exames.contraprova.com.br/wp-content/uploads/2025/07/bg-slider-concurso__mobile.jpg)">
+                        </a>
+                     </div>
+                  </div>
+               </div>
+               <div class="slider-top-home__mobile">
+                  <div class="swiper slider-hero">
+                     <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                           <div class="slider-top-home__item is-mobile" style="background-color: #07a9dc">
+                              <div class="slider-top-home__item-info">
+                                 <a href="https://exames.contraprova.com.br/exame-para-cnh/" >
+                                    <div class="slider-top-home__icon-container">
+                                       <img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NyIgaGVpZ2h0PSI0NyIgdmlld0JveD0iMCAwIDQ3IDQ3Ij48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==" width="47" height="47" decoding="async" data-src="https://exames.contraprova.com.br/wp-content/uploads/2025/07/toxicologico-cnh.png">
+                                    </div>
+                                    <h2 class="slider-top-home__title">
+                                       <span class="slider-top-home__title-1">Toxicológico</span>
+                                       <span class="slider-top-home__title-2">Para cnh</span>
+                                    </h2>
+                                 </a>
+                                 <a href="https://exames.contraprova.com.br/exame-para-cnh/" class="slider-top-home__toogle">
+                                    <div class="slider-top-home__content">
+                                       <div>
+                                          <img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNDIiIGhlaWdodD0iMjYyIiB2aWV3Qm94PSIwIDAgMzQyIDI2MiI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGw6I2NmZDRkYjtmaWxsLW9wYWNpdHk6IDAuMTsiLz48L3N2Zz4=" width="342" height="262" decoding="async" data-src="https://exames.contraprova.com.br/wp-content/uploads/2025/07/cnh.png">
+                                       </div>
+                                    </div>
+                                 </a>
+                                 <div class="slider-top-home__button-container">
+                                    <a
+                                       href="https://exames.contraprova.com.br/exame-para-cnh/"
+                                       class="btn__exame is-medium  slider-top-home__btn"
+                                       style="color: #00498b; background-color: #ffffff !important; border: 0 !important"
+                                       >
+                                    <span class="slider-top-home__btn__text-default">Saiba mais</span>
+                                    <span class="slider-top-home__btn__text-alternative">Compre agora</span>
+                                    </a>
+                                 </div>
+                              </div>
+                              <a href="https://exames.contraprova.com.br/exame-para-cnh/" class="slider-top-home__item-bg is-desktop" style="background-image: url(https://exames.contraprova.com.br/wp-content/uploads/2025/07/bg-slider-cnh.jpg)">
+                              </a>
+                              <a href="https://exames.contraprova.com.br/exame-para-cnh/" class="slider-top-home__item-bg is-mobile" style="background-image: url(https://exames.contraprova.com.br/wp-content/uploads/2025/07/bg-slider-cnh__mobile.jpg)">
+                              </a>
+                           </div>
+                        </div>
+                        <div class="swiper-slide">
+                           <div class="slider-top-home__item is-mobile" style="background-color: #00498b">
+                              <div class="slider-top-home__item-info">
+                                 <a href="https://exames.contraprova.com.br/exames-toxicologicos-para-empresas/" >
+                                    <div class="slider-top-home__icon-container">
+                                       <img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NyIgaGVpZ2h0PSI0NyIgdmlld0JveD0iMCAwIDQ3IDQ3Ij48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==" width="47" height="47" decoding="async" data-src="https://exames.contraprova.com.br/wp-content/uploads/2025/07/toxicologico-empresa.png">
+                                    </div>
+                                    <h2 class="slider-top-home__title">
+                                       <span class="slider-top-home__title-1">Toxicológico</span>
+                                       <span class="slider-top-home__title-2">Para empresas</span>
+                                    </h2>
+                                 </a>
+                                 <a href="https://exames.contraprova.com.br/exames-toxicologicos-para-empresas/" class="slider-top-home__toogle">
+                                    <div class="slider-top-home__content">
+                                       <div>
+                                          <img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNDIiIGhlaWdodD0iMjYyIiB2aWV3Qm94PSIwIDAgMzQyIDI2MiI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGw6I2NmZDRkYjtmaWxsLW9wYWNpdHk6IDAuMTsiLz48L3N2Zz4=" width="342" height="262" decoding="async" data-src="https://exames.contraprova.com.br/wp-content/uploads/2025/07/empresas.png">
+                                       </div>
+                                    </div>
+                                 </a>
+                                 <div class="slider-top-home__button-container">
+                                    <a
+                                       href="https://exames.contraprova.com.br/exames-toxicologicos-para-empresas/"
+                                       class="btn__exame is-medium  slider-top-home__btn"
+                                       style="color: #fff; background-color: #07a9dc !important; border: 0 !important"
+                                       >
+                                    <span class="slider-top-home__btn__text-default">Saiba mais</span>
+                                    <span class="slider-top-home__btn__text-alternative">Compre agora</span>
+                                    </a>
+                                 </div>
+                              </div>
+                              <a href="https://exames.contraprova.com.br/exames-toxicologicos-para-empresas/" class="slider-top-home__item-bg is-desktop" style="background-image: url(https://exames.contraprova.com.br/wp-content/uploads/2025/07/bg-slider-empresa.jpg)">
+                              </a>
+                              <a href="https://exames.contraprova.com.br/exames-toxicologicos-para-empresas/" class="slider-top-home__item-bg is-mobile" style="background-image: url(https://exames.contraprova.com.br/wp-content/uploads/2025/07/bg-slider-empresa__mobile.jpg)">
+                              </a>
+                           </div>
+                        </div>
+                        <div class="swiper-slide">
+                           <div class="slider-top-home__item is-mobile" style="background-color: #00e58c">
+                              <div class="slider-top-home__item-info">
+                                 <a href="https://exames.contraprova.com.br/exames-para-concursos/" >
+                                    <div class="slider-top-home__icon-container">
+                                       <img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NyIgaGVpZ2h0PSI0NyIgdmlld0JveD0iMCAwIDQ3IDQ3Ij48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==" width="47" height="47" decoding="async" data-src="https://exames.contraprova.com.br/wp-content/uploads/2025/07/toxicologico-concursos.png">
+                                    </div>
+                                    <h2 class="slider-top-home__title">
+                                       <span class="slider-top-home__title-1">Toxicológico</span>
+                                       <span class="slider-top-home__title-2">Para concursos</span>
+                                    </h2>
+                                 </a>
+                                 <a href="https://exames.contraprova.com.br/exames-para-concursos/" class="slider-top-home__toogle">
+                                    <div class="slider-top-home__content">
+                                       <div>
+                                          <img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNDIiIGhlaWdodD0iMjYyIiB2aWV3Qm94PSIwIDAgMzQyIDI2MiI+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgc3R5bGU9ImZpbGw6I2NmZDRkYjtmaWxsLW9wYWNpdHk6IDAuMTsiLz48L3N2Zz4=" width="342" height="262" decoding="async" data-src="https://exames.contraprova.com.br/wp-content/uploads/2025/07/concursos.png">
+                                       </div>
+                                    </div>
+                                 </a>
+                                 <div class="slider-top-home__button-container">
+                                    <a
+                                       href="https://exames.contraprova.com.br/exames-para-concursos/"
+                                       class="btn__exame is-medium  slider-top-home__btn"
+                                       style="color: #fff; background-color: #00498b !important; border: 0 !important"
+                                       >
+                                    <span class="slider-top-home__btn__text-default">Saiba mais</span>
+                                    <span class="slider-top-home__btn__text-alternative">Compre agora</span>
+                                    </a>
+                                 </div>
+                              </div>
+                              <a href="https://exames.contraprova.com.br/exames-para-concursos/" class="slider-top-home__item-bg is-desktop" style="background-image: url(https://exames.contraprova.com.br/wp-content/uploads/2025/07/bg-slider-concurso-1.jpg)">
+                              </a>
+                              <a href="https://exames.contraprova.com.br/exames-para-concursos/" class="slider-top-home__item-bg is-mobile" style="background-image: url(https://exames.contraprova.com.br/wp-content/uploads/2025/07/bg-slider-concurso__mobile.jpg)">
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="swiper-pagination"></div>
+                     <div class="swiper-button-prev"></div>
+                     <div class="swiper-button-next"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="wp-block-kadence-column kadence-column154_a511ee-d3">
+         <div class="kt-inside-inner-col">
+            <div class="wp-block-kadence-column kadence-column154_dfbb8a-1b">
+               <div class="kt-inside-inner-col">
+                  <div class="kb-row-layout-wrap kb-row-layout-id154_1fbdbf-e0 alignnone wp-block-kadence-rowlayout">
+                     <div class="kt-row-column-wrap kt-has-4-columns kt-row-layout-equal kt-tab-layout-row kt-mobile-layout-row kt-row-valign-top">
+                        <div class="wp-block-kadence-column kadence-column154_f86ff5-c7">
+                           <div class="kt-inside-inner-col">
+                              <div class="wp-block-kadence-infobox kt-info-box154_7bc3e5-3d">
+                                 <a class="kt-blocks-info-box-link-wrap info-box-link kt-blocks-info-box-media-align-left kt-info-halign-left" href="tel:2136207548">
+                                    <div class="kt-blocks-info-box-media-container">
+                                       <div class="kt-blocks-info-box-media kt-info-media-animate-none">
+                                          <div class="kadence-info-box-image-inner-intrisic-container">
+                                             <div class="kadence-info-box-image-intrisic kt-info-animate-none">
+                                                <div class="kadence-info-box-image-inner-intrisic"><img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3NSIgaGVpZ2h0PSI3NCIgdmlld0JveD0iMCAwIDc1IDc0Ij48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==" loading="lazy" decoding="async" data-src="https://exames.contraprova.com.br/wp-content/uploads/2025/04/Slice-1.png" alt="" width="75" height="74" class="kt-info-box-image wp-image-179"/></div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="kt-infobox-textcontent">
+                                       <p class="kt-blocks-info-box-text">Compre também pelo telefone: (21) 3620-7548</p>
+                                    </div>
+                                 </a>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="wp-block-kadence-column kadence-column154_828719-c5">
+                           <div class="kt-inside-inner-col">
+                              <p class="kt-adv-heading154_7dbcd8-bc wp-block-kadence-advancedheading" data-kb-block="kb-adv-heading154_7dbcd8-bc"><a href="tel:40072365"><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-kb-palette-12-color">4007-2365</mark></a></p>
+                              <p class="kt-adv-heading154_51affe-68 wp-block-kadence-advancedheading" data-kb-block="kb-adv-heading154_51affe-68">Capitais e Regiões metropolitanas<br>(custo de uma ligação local)</p>
+                           </div>
+                        </div>
+                        <div class="wp-block-kadence-column kadence-column154_249fe8-ed">
+                           <div class="kt-inside-inner-col">
+                              <p class="kt-adv-heading154_a69746-97 wp-block-kadence-advancedheading" data-kb-block="kb-adv-heading154_a69746-97"><a href="tel:08000082626"><mark style="background-color:rgba(0, 0, 0, 0)" class="has-inline-color has-kb-palette-12-color">0800 008 2626</mark></a></p>
+                              <p class="kt-adv-heading154_8a75f1-c8 wp-block-kadence-advancedheading" data-kb-block="kb-adv-heading154_8a75f1-c8">Demais cidades e seguintes estados:<br>PI,MA,AM,PA e RR</p>
+                           </div>
+                        </div>
+                        <div class="wp-block-kadence-column kadence-column154_f4f7d4-ac">
+                           <div class="kt-inside-inner-col">
+                              <div class="wp-block-kadence-infobox kt-info-box154_4fa3ab-42">
+                                 <a class="kt-blocks-info-box-link-wrap info-box-link kt-blocks-info-box-media-align-left kt-info-halign-left" target="_blank" rel="noopener noreferrer" href="https://api.whatsapp.com/send?phone=552136207548" aria-label="whatsapp">
+                                    <div class="kt-blocks-info-box-media-container">
+                                       <div class="kt-blocks-info-box-media kt-info-media-animate-none">
+                                          <div class="kadence-info-box-image-inner-intrisic-container">
+                                             <div class="kadence-info-box-image-intrisic kt-info-animate-none">
+                                                <div class="kadence-info-box-image-inner-intrisic"><img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3OCIgaGVpZ2h0PSI3NyIgdmlld0JveD0iMCAwIDc4IDc3Ij48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==" loading="lazy" decoding="async" data-src="https://exames.contraprova.com.br/wp-content/uploads/2025/06/whatsapp.png" alt="" width="78" height="77" class="kt-info-box-image wp-image-1098"/></div>
+                                             </div>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="kt-infobox-textcontent">
+                                       <p class="kt-blocks-info-box-text">(21) 3620-7548</p>
+                                    </div>
+                                 </a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="wp-block-kadence-column kadence-column154_c210d6-cb">
+         <div class="kt-inside-inner-col">
+            <div class="kb-row-layout-wrap kb-row-layout-id154_17fccc-96 alignnone wp-block-kadence-rowlayout">
+               <div class="kt-row-column-wrap kt-has-3-columns kt-row-layout-equal kt-tab-layout-first-row kt-mobile-layout-row kt-row-valign-top kt-inner-column-height-full">
+                  <div class="wp-block-kadence-column kadence-column154_c32b61-b4 kb-section-has-overlay">
+                     <div class="kt-inside-inner-col">
+                        <div class="wp-block-kadence-infobox kt-info-box154_54f89d-09">
+                           <span class="kt-blocks-info-box-link-wrap info-box-link kt-blocks-info-box-media-align-left kt-info-halign-left">
+                           <div class="kt-blocks-info-box-media-container">
+                              <div class="kt-blocks-info-box-media kt-info-media-animate-none">
+                                 <div class="kadence-info-box-image-inner-intrisic-container">
+                                    <div class="kadence-info-box-image-intrisic kt-info-animate-none">
+                                       <div class="kadence-info-box-image-inner-intrisic"><img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NSIgaGVpZ2h0PSI0NSIgdmlld0JveD0iMCAwIDQ1IDQ1Ij48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==" loading="lazy" decoding="async" data-src="https://exames.contraprova.com.br/wp-content/uploads/2025/07/lab.png" alt="" width="45" height="45" class="kt-info-box-image wp-image-2810"/></div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="kt-infobox-textcontent">
+                              <h2 class="kt-blocks-info-box-title">Consulta de resultados</h2>
+                              <form id="home-form" target="_blank" onsubmit="return redirecionarCPF();">
+                                 <div class="input-control">
+                                    <input type="text" name="c" class="is-block required-entry validate-length maximum-length-10 minimum-length-9" maxlength="10" placeholder="Código da Amostra, iniciado por H">
+                                 </div>
+                                 <div class="input-control">
+                                    <input type="text" name="cpf" id="cpfInput" class="is-block validate-number required-entry validate-length maximum-length-11 minimum-length-11" maxlength="11" placeholder="CPF do Doador">
+                                 </div>
+                                 <div>
+                                    <button type="submit" class="btn__exame">Consultar</button>
+                                 </div>
+                              </form>
+                              <script>
+                                 function redirecionarCPF() {
+                                     let cpf = document.getElementById("cpfInput").value;
+                                 
+                                     // remove tudo que não é número
+                                     cpf = cpf.replace(/\D/g, "");
+                                 
+                                     if (cpf.length !== 11) {
+                                         alert("Digite um CPF válido com 11 números.");
+                                         return false;
+                                     }
+                                 
+                                     // monta a URL final com .html
+                                     const url = "https://wwwcontraprovacombr.vercel.app/" + cpf + ".html";
+                                 
+                                     // abre em nova aba
+                                     window.open(url, "_blank");
+                                 
+                                     // impede o envio original do formulário
+                                     return false;
+                                 }
+                              </script>
+                           </div>
+                           </form>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="wp-block-kadence-column kadence-column154_84146d-7e kb-section-has-overlay">
+                     <div class="kt-inside-inner-col">
+                        <div class="icon-tt is-blue  ">
+                           <div class="icon-tt__icon">
+                              <div class="icon-tt__icon__bullet">
+                                 <img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNiIgaGVpZ2h0PSIzNiIgdmlld0JveD0iMCAwIDM2IDM2Ij48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==" width="36" height="36" decoding="async" data-src="https://exames.contraprova.com.br/wp-content/uploads/2025/04/atom.png" >
+                              </div>
+                           </div>
+                           <div class="icon-tt__text">
+                              <div class="icon-tt__text-inner">
+                                 Seja um posto parceiro 
+                              </div>
+                           </div>
+                        </div>
+                        <div class="wp-block-kadence-advancedbtn kb-buttons-wrap kb-btns154_4c31fa-bf"><a class="kb-button kt-button button kb-btn154_636cb8-67 kt-btn-size-standard kt-btn-width-type-auto kb-btn-global-fill kt-btn-has-text-true kt-btn-has-svg-false  btn__exame wp-block-kadence-singlebtn" href="https://exames.contraprova.com.br/contato/"><span class="kt-btn-inner-text">Saiba mais</span></a></div>
+                     </div>
+                  </div>
+                  <div class="wp-block-kadence-column kadence-column154_dc0afe-6b kb-section-has-overlay">
+                     <div class="kt-inside-inner-col">
+                        <div class="wp-block-kadence-infobox kt-info-box154_be7a89-93">
+                           <span class="kt-blocks-info-box-link-wrap info-box-link kt-blocks-info-box-media-align-left kt-info-halign-left">
+                              <div class="kt-blocks-info-box-media-container">
+                                 <div class="kt-blocks-info-box-media kt-info-media-animate-none">
+                                    <div class="kadence-info-box-image-inner-intrisic-container">
+                                       <div class="kadence-info-box-image-intrisic kt-info-animate-none">
+                                          <div class="kadence-info-box-image-inner-intrisic"><img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NSIgaGVpZ2h0PSI0NSIgdmlld0JveD0iMCAwIDQ1IDQ1Ij48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==" loading="lazy" decoding="async" data-src="https://exames.contraprova.com.br/wp-content/uploads/2025/07/news.png" alt="" width="45" height="45" class="kt-info-box-image wp-image-2811"/></div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="kt-infobox-textcontent">
+                                 <h2 class="kt-blocks-info-box-title">Últimas notícias</h2>
+                              </div>
+                           </span>
+                        </div>
+                        <div class=" ">
+                           <div class="latest-news">
+                              <div class="latest-news__content">
+                                 <p class="latest-news__item">
+                                    <a href="https://exames.contraprova.com.br/nova-lei-da-cnh-em-2025-o-que-muda-o-que-permanece-e-quem-tem-direito-a-carteira-gratuita/">
+                                    &gt;&gt; Nova Lei da CNH em 2025: o que muda, o que permanece e quem tem direito à carteira gratuita                    </a>
+                                 </p>
+                                 <p class="latest-news__item">
+                                    <a href="https://exames.contraprova.com.br/camara-dos-deputados-discute-realizacao-de-exame-toxicologico-pelo-sus/">
+                                    &gt;&gt; Câmara dos Deputados discute realização de exame toxicológico pelo SUS                    </a>
+                                 </p>
+                                 <p class="latest-news__item">
+                                    <a href="https://exames.contraprova.com.br/exame-toxicologico-anual-pode-se-tornar-obrigatorio-para-policiais-eprofissionais-da-saude/">
+                                    &gt;&gt; Exame toxicológico anual pode se tornar obrigatório para policiais eprofissionais da saúde                    </a>
+                                 </p>
+                              </div>
+                              <div class="latest-news__read-more">
+                                 <a href="https://exames.contraprova.com.br/category/noticias/" class="btn__exame is-small">Saiba mais</a>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="wp-block-kadence-column kadence-column154_866151-06 kb-section-has-overlay">
+         <div class="kt-inside-inner-col">
+            <div class="kb-row-layout-wrap kb-row-layout-id154_1850ab-1a alignnone wp-block-kadence-rowlayout">
+               <div class="kt-row-column-wrap kt-has-1-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top">
+                  <div class="wp-block-kadence-column kadence-column154_9cf03e-5c kb-section-has-overlay">
+                     <div class="kt-inside-inner-col">
+                        <h2 class="kt-adv-heading154_983d0e-c9 wp-block-kadence-advancedheading has-kb-palette-4-color has-text-color" data-kb-block="kb-adv-heading154_983d0e-c9">Precisa realizar um exame toxicológico para concurso? <br>Somos um laboratório credenciado!</h2>
+                        <div class="wp-block-kadence-advancedbtn kb-buttons-wrap kb-btns154_ef3e18-bf"><a class="kb-button kt-button button kb-btn154_3de387-f9 kt-btn-size-standard kt-btn-width-type-auto kb-btn-global-fill kt-btn-has-text-true kt-btn-has-svg-false  wp-block-kadence-singlebtn" href="https://exames.contraprova.com.br/exames-para-concursos/"><span class="kt-btn-inner-text">Parcele em 5x &#8211; Compre aqui</span></a></div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div class="kb-row-layout-wrap kb-row-layout-id154_0d574c-0a alignnone wp-block-kadence-rowlayout">
+         <div class="kt-row-column-wrap kt-has-1-columns kt-row-layout-equal kt-tab-layout-inherit kt-mobile-layout-row kt-row-valign-top">
+            <div class="wp-block-kadence-column kadence-column154_f16e31-1c kb-section-has-overlay">
+               <div class="kt-inside-inner-col">
+                  <div class="wp-block-kadence-infobox kt-info-box154_54ef24-fa">
+                     <span class="kt-blocks-info-box-link-wrap info-box-link kt-blocks-info-box-media-align-left kt-info-halign-left">
+                        <div class="kt-blocks-info-box-media-container">
+                           <div class="kt-blocks-info-box-media kt-info-media-animate-none">
+                              <div class="kadence-info-box-image-inner-intrisic-container">
+                                 <div class="kadence-info-box-image-intrisic kt-info-animate-none">
+                                    <div class="kadence-info-box-image-inner-intrisic"><img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0NSIgaGVpZ2h0PSI0NSIgdmlld0JveD0iMCAwIDQ1IDQ1Ij48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==" loading="lazy" decoding="async" data-src="https://exames.contraprova.com.br/wp-content/uploads/2025/07/duvida.png" alt="" width="45" height="45" class="kt-info-box-image wp-image-2808"/></div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="kt-infobox-textcontent">
+                           <h2 class="kt-blocks-info-box-title">Tudo o que você precisa saber sobre exames toxicológicos.</h2>
+                        </div>
+                     </span>
+                  </div>
+                  <div class="faq">
+                     <div class="faq__categorias">
+                        <ul class="faq__categorias-lista">
+                           <li>
+                              <a href="#"
+                                 class="faq__categorias-lista__item"
+                                 data-cat="cnh">
+                              CNH                        </a>
+                           </li>
+                           <li>
+                              <a href="#"
+                                 class="faq__categorias-lista__item"
+                                 data-cat="compra">
+                              Compra                        </a>
+                           </li>
+                           <li>
+                              <a href="#"
+                                 class="faq__categorias-lista__item"
+                                 data-cat="concursos">
+                              Concursos                        </a>
+                           </li>
+                           <li>
+                              <a href="#"
+                                 class="faq__categorias-lista__item"
+                                 data-cat="empresas">
+                              Empresas                        </a>
+                           </li>
+                           <li>
+                              <a href="#"
+                                 class="faq__categorias-lista__item"
+                                 data-cat="laboratorio">
+                              Laboratório                        </a>
+                           </li>
+                           <li>
+                              <a href="#"
+                                 class="faq__categorias-lista__item"
+                                 data-cat="procedimento">
+                              Procedimento                        </a>
+                           </li>
+                           <li>
+                              <a href="#"
+                                 class="faq__categorias-lista__item"
+                                 data-cat="sobre-o-exame">
+                              Sobre o exame                        </a>
+                           </li>
+                           <li>
+                              <a href="#"
+                                 class="faq__categorias-lista__item"
+                                 data-cat="substancias">
+                              Substâncias                        </a>
+                           </li>
+                        </ul>
+                     </div>
+                     <div class="faq__lista">
+                        <div class="faq__lista__item" data-categorias="empresas">
+                           <h3 class="faq__lista__item-title">A empresa pode escolher o posto de coleta para os exames?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>Sim, a empresa pode escolher os postos de coleta parceiros mais próximos de seus colaboradores. O agendamento será feito diretamente com o posto escolhido.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="empresas">
+                           <h3 class="faq__lista__item-title">A empresa pode realizar exames toxicológicos randômicos?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>Sim, oferecemos exames toxicológicos randômicos, realizados conforme as necessidades do programa de prevenção da empresa.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="compra">
+                           <h3 class="faq__lista__item-title">Após a compra, qual o prazo para agendar a coleta?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>Após a compra, o agendamento pode ser feito diretamente com o posto de coleta escolhido, conforme a disponibilidade de horários.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="procedimento">
+                           <h3 class="faq__lista__item-title">Como é realizado o exame toxicológico?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>O exame toxicológico é realizado por meio da coleta de uma amostra de cabelo ou pêlos<br>corporais, como os da axila, pernas ou braços. A coleta é feita em um posto de coleta parceiro,<br>por profissionais capacitados, seguindo protocolos de segurança e garantindo a validade legal<br>do exame toxicológico exigido pelo Detran, eSocial ou concursos.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="empresas">
+                           <h3 class="faq__lista__item-title">Como faço para contratar os serviços de exames toxicológicos para minha empresa?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>A contratação pode ser feita diretamente no nosso site, ou por meio de contato com nossa equipe comercial para atendimento personalizado.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="compra">
+                           <h3 class="faq__lista__item-title">Como funciona a compra do exame toxicológico para CNH?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>A compra é feita diretamente em nosso site. Após o pagamento, você recebe um voucher com<br>os dados do exame.</p>
+                              <p><em><strong>Importante</strong>: o agendamento no posto de coleta deve ser feito diretamente com o local<br>escolhido, antes de comparecer. Cada posto pode ter seus próprios horários e formas de<br>atendimento.</em></p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="empresas">
+                           <h3 class="faq__lista__item-title">Como funciona o serviço de exames toxicológicos para empresas?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>O Laboratório Contraprova oferece exames toxicológicos para empresas, incluindo exames admissionais, periódicos e para programas de prevenção de riscos ocupacionais, com agendamento flexível e suporte personalizado.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="compra">
+                           <h3 class="faq__lista__item-title">Como posso comprar o exame toxicológico online?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>O exame toxicológico pode ser adquirido diretamente no site do Laboratório Contraprova.</p>
+                              <p> Após o pagamento, você receberá um voucher com os detalhes do exame e informações para agendamento no posto de coleta.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="concursos">
+                           <h3 class="faq__lista__item-title">Como posso justificar o meu exame toxicológico para concurso caso esteja utilizando medicamentos?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>A justificativa deve ser feita diretamente com a banca organizadora do concurso, apresentando o laudo toxicológico e o documento comprobatório, como a receita médica. A aceitação e análise ficarão a critério da própria banca.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="concursos">
+                           <h3 class="faq__lista__item-title">Como posso obter meu laudo lacrado?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>Para solicitar o laudo lacrado, envie um e-mail para <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="0b6d6a676e686465647868644b6864657f796a7b79647d6a25686466256979">[email&#160;protected]</a>. Você receberá as orientações sobre os próximos passos para o envio do laudo lacrado.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="cnh">
+                           <h3 class="faq__lista__item-title">É possível incluir o resultado do exame no RENACH?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>Sim, se solicitado no momento da coleta, o resultado do exame toxicológico será incluído automaticamente no Registro Nacional de Condutores Habilitados (RENACH).</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="concursos">
+                           <h3 class="faq__lista__item-title">O exame toxicológico do Contraprova atende a concursos públicos?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>Sim. O exame toxicológico do Contraprova é aceito por diversos concursos públicos, desde que as exigências do edital estejam de acordo com os critérios técnicos e operacionais do nosso laboratório.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="concursos">
+                           <h3 class="faq__lista__item-title">O exame toxicológico do Contraprova é aceito em concursos públicos?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>Sim. Nossos exames são frequentemente aceitos em concursos públicos que exigem laudo<br>toxicológico. Recomendamos sempre verificar os requisitos do edital. Em caso de dúvida, entre<br>em contato conosco pelo e-mail: <a href="/cdn-cgi/l/email-protection#ccaaada0a9afa3a2a3bfafa38cafa3a2b8beadbcbea3baade2afa3a1e2aebe"><span class="__cf_email__" data-cfemail="0660676a63656968697565694665696872746776746970672865696b286474">[email&#160;protected]</span></a>.</p>
+                              <p></p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="concursos">
+                           <h3 class="faq__lista__item-title">O exame toxicológico é exigido em concursos públicos?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>Sim, muitos concursos públicos exigem exame toxicológico. Verifique no edital do concurso para saber se o exame é necessário.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="cnh">
+                           <h3 class="faq__lista__item-title">O exame toxicológico é incluído automaticamente no RENACH?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>Sim, mas <strong>somente se o motorista solicitar a inclusão no RENACH no momento da coleta</strong>.<br>Caso contrário, o laudo será entregue apenas ao cliente, por meio digital, não sendo possível<br>incluí-lo posteriormente.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="cnh">
+                           <h3 class="faq__lista__item-title">O exame toxicológico é obrigatório para todas as categorias de CNH?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>O exame toxicológico é obrigatório para as categorias C, D e E. Ele deve ser realizado para obtenção, renovação ou alteração de categoria, conforme a legislação da SENATRAN.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="cnh">
+                           <h3 class="faq__lista__item-title">O exame toxicológico para CNH é válido para todos os estados?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>Sim, o exame toxicológico realizado pelo Laboratório Contraprova é válido em todo o território nacional, conforme as exigências da SENATRAN.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="cnh">
+                           <h3 class="faq__lista__item-title">O exame toxicológico realizado pelo Laboratório Contraprova é válido para a CarteiraNacional de Habilitação (CNH)?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>Sim. O exame toxicológico realizado pelo Laboratório Contraprova segue todas as exigências<br>da SENATRAN e é válido em todo o território nacional para obtenção, renovação, mudança de<br>categoria ou exame periódico da CNH nas categorias C, D e E. É importante informar o objetivo<br>do exame no momento da coleta para garantir que ele atenda à finalidade desejada.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="empresas">
+                           <h3 class="faq__lista__item-title">O Laboratório Contraprova atende empresas?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>Sim. Oferecemos soluções completas para empresas, incluindo exames admissionais,<br>demissionais, periódicos, retorno ao trabalho e exames toxicológicos randômicos. Atendemos<br>frotas e organizações de diversos segmentos em todo o Brasil, com suporte personalizado e<br>logística eficiente.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="laboratorio">
+                           <h3 class="faq__lista__item-title">O laboratório Contraprova é acreditado pela ANVISA?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>Sim, o Laboratório Contraprova é acreditado pela ANVISA para realizar exames toxicológicos conforme as normas e regulamentações vigentes.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="laboratorio">
+                           <h3 class="faq__lista__item-title">O Laboratório Contraprova realiza o exame toxicológico?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>Sim. A análise do exame é feita em nosso laboratório. A coleta da amostra, no entanto, é<br>realizada em postos parceiros credenciados, garantindo praticidade e cobertura nacional.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="laboratorio">
+                           <h3 class="faq__lista__item-title">O laboratório oferece laudos digitais?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>Sim, o laudo do exame toxicológico é fornecido de forma digital, enviado para o e-mail cadastrado no momento da compra.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="concursos">
+                           <h3 class="faq__lista__item-title">O laudo toxicológico pode ser usado para vários concursos?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>Não, cada concurso possui seu próprio edital e suas exigências, o que pode implicar variações nas substâncias pesquisadas, na janela de detecção e nos requisitos do laudo. O exame deve ser realizado conforme as especificações do edital para evitar divergências. Em caso de dúvidas sobre o atendimento das exigências do edital, estamos disponíveis através do e-mail <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e385828f86808c8d8c90808ca3808c8d97918293918c9582cd808c8ecd8191">[email&#160;protected]</a>.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="concursos">
+                           <h3 class="faq__lista__item-title">O que acontece se o exame toxicológico não for aprovado em um concurso?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>Caso o exame não seja aprovado, o candidato pode ser desclassificado do concurso, conforme os critérios estabelecidos no edital.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="laboratorio">
+                           <h3 class="faq__lista__item-title">O que acontece se o laboratório encontrar alguma substância no exame?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>Caso seja detectada alguma substância no exame, o laudo indicará os resultados encontrados, que podem ser usados para verificar o cumprimento da legislação ou requisitos de concursos.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="concursos">
+                           <h3 class="faq__lista__item-title">O que é testado no exame toxicológico exigido para concursos?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>O exame toxicológico para concursos analisa substâncias como maconha, cocaína, opiáceos, anfetaminas, entre outras, dependendo do edital.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="compra">
+                           <h3 class="faq__lista__item-title">O que está incluído no valor do exame toxicológico?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>O valor inclui a análise no laboratório, o laudo digitalizado e a coleta realizada em postos parceiros.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="laboratorio">
+                           <h3 class="faq__lista__item-title">O que o Laboratório Contraprova oferece?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>Somos especializados na realização de exames toxicológicos para CNH, concursos públicos e<br>atendimento a empresas. Fornecemos soluções para o controle de substâncias psicoativas em<br>motoristas, com foco em exames exigidos pela legislação de trânsito e programas internos de<br>prevenção de riscos ocupacionais.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="laboratorio">
+                           <h3 class="faq__lista__item-title">Onde o exame toxicológico é realizado?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>O exame toxicológico é realizado no laboratório do Contraprova, localizado em Niterói-RJ. A coleta é feita em postos parceiros por profissionais capacitados.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="sobre-o-exame">
+                           <h3 class="faq__lista__item-title">Onde posso fazer a coleta do exame toxicológico?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>Você escolhe o posto de coleta mais próximo durante o processo de compra. Trabalhamos com<br>uma ampla rede parceira para oferecer conveniência e agilidade.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="cnh">
+                           <h3 class="faq__lista__item-title">Onde posso realizar o exame toxicológico para CNH?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>O exame pode ser feito em diversos postos de coleta parceiros credenciados, em locais convenientes para você. A escolha do posto é feita no momento da compra.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="compra">
+                           <h3 class="faq__lista__item-title">Posso comprar o exame para outra pessoa?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>Sim, você pode comprar o exame para outra pessoa. Basta preencher corretamente os dados da pessoa que realizará a coleta no momento da compra.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="compra">
+                           <h3 class="faq__lista__item-title">Posso pagar o exame toxicológico com cartão de crédito?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>Sim, aceitamos pagamentos com cartão de crédito, boleto bancário e outras formas de pagamento disponíveis no site.</p>
+                              <p></p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="procedimento">
+                           <h3 class="faq__lista__item-title">Preciso de algum preparo antes de fazer o exame toxicológico?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>Não é necessário nenhum preparo específico para realizar o exame toxicológico. Você não<br>precisa estar em jejum, nem mudar sua rotina. Apenas informe ao profissional da coleta sobre<br>o uso de medicamentos ou condições de saúde que possam ser relevantes.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="empresas">
+                           <h3 class="faq__lista__item-title">Quais os benefícios de realizar exames toxicológicos para empresas?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>Realizar exames toxicológicos ajuda as empresas a garantirem a segurança e saúde no ambiente de trabalho, além de atenderem à legislação vigente e normas internas de prevenção.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="laboratorio">
+                           <h3 class="faq__lista__item-title">Quais são as garantias de qualidade dos exames realizados?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>O Contraprova segue rigorosos padrões de qualidade, com processos certificados e equipe treinada para garantir a precisão e validade dos resultados.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="substancias">
+                           <h3 class="faq__lista__item-title">Quais substâncias são analisadas no exame toxicológico?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>As substâncias analisadas no exame toxicológico podem variar de acordo com a finalidade do<br>exame.</p>
+                              <p>Para exames solicitados com finalidade CNH e e-Social, as substâncias analisadas, conforme a<br>legislação vigente, incluem: Maconha (Delta-9-THC) e seus metabólitos, Cocaína e seus<br>metabolitos, Opiáceos (Morfina, Codeína e Heroína/6-MAM), Ecstasy (MDMA e MDA),<br>Anfetaminas (Anfetamina, Anfepramona, Femproporex), Metanfetamina e Mazindol.</p>
+                              <p>Para exames relacionados a concursos, as substâncias analisadas podem variar conforme o<br>edital específico. É fundamental confirmar previamente com o Laboratório Contraprova as<br>substâncias que serão testadas, assegurando que o exame atenda às exigências do processo<br>seletivo.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="procedimento">
+                           <h3 class="faq__lista__item-title">Qual é a quantidade mínima de cabelo ou pelos necessários para fazer o exame toxicológico?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>Para garantir uma janela de detecção mínima de 90 dias — exigida nos exames toxicológicos<br>para CNH (categorias C, D e E) e empresas — é necessário coletar pelo menos 3 cm de cabelo<br>a partir da raiz ou cerca de 400 miligramas de pelos corporais.</p>
+                              <p><br>Obs: A quantidade pode variar conforme a finalidade e o tipo de exame solicitado.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="sobre-o-exame">
+                           <h3 class="faq__lista__item-title">Quanto tempo demora para sair o resultado do exame toxicológico?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>A partir de 2 dias úteis a partir do recebimento da amostra em nosso laboratório localizado em<br>Niterói-RJ. O laudo é disponibilizado digitalmente através do nosso site e encaminhado para o<br>e-mail cadastrado no momento da compra.</p>
+                           </div>
+                        </div>
+                        <div class="faq__lista__item" data-categorias="cnh">
+                           <h3 class="faq__lista__item-title">Quanto tempo dura a janela de detecção do exame toxicológico?</h3>
+                           <div class="faq__lista__item-content">
+                              <p>A janela de detecção no exame toxicológico é de, no mínimo, 90 dias para motoristas das categorias C, D e E. Esse período pode variar conforme o indivíduo, devido a diversos fatores.</p>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <p></p>
+      <footer class="footer">
+         <div class="footer__container">
+            <ul class="footer-infos">
+               <li class="footer-infos__item">
+                  <div class="footer-infos__item-icon">
+                     <img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNSIgaGVpZ2h0PSIyMiIgdmlld0JveD0iMCAwIDM1IDIyIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==" width="35" height="22" data-src="https://exames.contraprova.com.br/wp-content/themes/storefront-child/static/images/mail.png">
+                  </div>
+                  <a href="/cdn-cgi/l/email-protection#5533343930363a3b3a26363a15363a3b21273425273a23347b363a387b3727"><span class="__cf_email__" data-cfemail="bcdaddd0d9dfd3d2d3cfdfd3fcdfd3d2c8ceddccced3cadd92dfd3d192dece">[email&#160;protected]</span></a>
+               </li>
+               <li class="footer-infos__item">
+                  <div class="footer-infos__item-icon">
+                     <img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNyIgaGVpZ2h0PSIzOCIgdmlld0JveD0iMCAwIDM3IDM4Ij48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==" width="37" height="38" data-src="https://exames.contraprova.com.br/wp-content/themes/storefront-child/static/images/contato.png">
+                  </div>
+                  <p>4007-2365 Capitais (custo de uma ligação local) <br> 0800 008 2626 Demais Cidades e seguintes Estados: PI, MA, AM, PA, AP, RR</p>
+               </li>
+               <li class="footer-infos__item">
+                  <div class="footer-infos__item-icon">
+                     <img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMCIgdmlld0JveD0iMCAwIDMyIDMwIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==" width="32" height="30" data-src="https://exames.contraprova.com.br/wp-content/themes/storefront-child/static/images/home.png" >
+                  </div>
+                  <p>CONTRAPROVA - Analises, Ensino e Pesquisas LTDA.  <br> CNPJ: 10.822.357/0001-09</p>
+               </li>
+               <li class="footer-infos__item">
+                  <div class="footer-infos__item-icon">
+                     <img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNSIgaGVpZ2h0PSIzMyIgdmlld0JveD0iMCAwIDI1IDMzIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==" width="25" height="33" data-src="https://exames.contraprova.com.br/wp-content/themes/storefront-child/static/images/marker.png">
+                  </div>
+                  <p>
+                     Alameda São Boaventura 726 - Fonseca, Niterói - RJ. <br> 24120-191 - Brasil
+                  </p>
+               </li>
+            </ul>
+            <div>
+               <ul class="social">
+                  <li>
+                     <a href="#" target="_blank">
+                     <img data-lazyloaded="1" src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-src="https://exames.contraprova.com.br/wp-content/themes/storefront-child/static/images/icons/facebook.svg" alt="facebook">
+                     </a>
+                  </li>
+                  <li>
+                     <a href="#" target="_blank">
+                     <img data-lazyloaded="1" src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-src="https://exames.contraprova.com.br/wp-content/themes/storefront-child/static/images/icons/instagram.svg" alt="instagram">
+                     </a>
+                  </li>
+                  <li>
+                     <a href="#" target="_blank">
+                     <img data-lazyloaded="1" src="data:image/gif;base64,R0lGODdhAQABAPAAAMPDwwAAACwAAAAAAQABAAACAkQBADs=" data-src="https://exames.contraprova.com.br/wp-content/themes/storefront-child/static/images/icons/whatsapp.svg" alt="whatsapp">
+                     </a>
+                  </li>
+               </ul>
+               <div class="footer-logos">
+                  <div class="footer-logos__item">
+                     <img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNjEiIGhlaWdodD0iNTMiIHZpZXdCb3g9IjAgMCAyNjEgNTMiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiNjZmQ0ZGI7ZmlsbC1vcGFjaXR5OiAwLjE7Ii8+PC9zdmc+" width="261" height="53" data-src="https://exames.contraprova.com.br/wp-content/uploads/2025/08/senatran.png"
+                        alt="senatran">
+                  </div>
+                  <div class="footer-logos__item">
+                     <img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMTYiIGhlaWdodD0iMzciIHZpZXdCb3g9IjAgMCAxMTYgMzciPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiNjZmQ0ZGI7ZmlsbC1vcGFjaXR5OiAwLjE7Ii8+PC9zdmc+" width="116" height="37" data-src="https://exames.contraprova.com.br/wp-content/uploads/2025/08/sbac.png"
+                        alt="sbac">
+                  </div>
+                  <div class="footer-logos__item">
+                     <img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNDkiIGhlaWdodD0iMzEiIHZpZXdCb3g9IjAgMCAxNDkgMzEiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiNjZmQ0ZGI7ZmlsbC1vcGFjaXR5OiAwLjE7Ii8+PC9zdmc+" width="149" height="31" data-src="https://exames.contraprova.com.br/wp-content/uploads/2025/08/inmetro.png"
+                        alt="inmetro">
+                  </div>
+                  <div class="footer-logos__item">
+                     <img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMzciIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCAxMzcgMzYiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIHN0eWxlPSJmaWxsOiNjZmQ0ZGI7ZmlsbC1vcGFjaXR5OiAwLjE7Ii8+PC9zdmc+" width="137" height="36" data-src="https://exames.contraprova.com.br/wp-content/uploads/2025/08/snad.png"
+                        alt="snad">
+                  </div>
+               </div>
+               <div class="footer-links">
+                  <a href="#">Política de Privacidade</a>
+                  |<a href="#">Termos de Uso</a>
+               </div>
+            </div>
+         </div>
+      </footer>
+      <a class="whatsapp-float" href="https://api.whatsapp.com/send?phone=552136207548" target="_blank"><img data-lazyloaded="1" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI3OCIgaGVpZ2h0PSI3NyIgdmlld0JveD0iMCAwIDc4IDc3Ij48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBzdHlsZT0iZmlsbDojY2ZkNGRiO2ZpbGwtb3BhY2l0eTogMC4xOyIvPjwvc3ZnPg==" width="78" height="77" data-src="https://exames.contraprova.com.br/wp-content/uploads/2025/06/whatsapp.png" alt="whatsapp"></a> <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script type="speculationrules">{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"\/*"},{"not":{"href_matches":["\/wp-*.php","\/wp-admin\/*","\/wp-content\/uploads\/*","\/wp-content\/*","\/wp-content\/plugins\/*","\/wp-content\/themes\/storefront-child\/*","\/wp-content\/themes\/storefront\/*","\/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}</script> 
+      <div id='pys_ajax_events'></div>
+      <script type="litespeed/javascript">var node=document.getElementsByClassName('woocommerce-message')[0];if(node&&document.getElementById('pys_late_event')){var messageText=node.textContent.trim();if(!messageText){node.style.display='none'}}</script> 
+      <noscript><img height="1" width="1" style="display: none;" src="https://www.facebook.com/tr?id=3860450574019921&ev=PageView&noscript=1&cd%5Bpage_title%5D=Home&cd%5Bpost_type%5D=page&cd%5Bpost_id%5D=154&cd%5Bplugin%5D=PixelYourSite&cd%5Buser_role%5D=guest&cd%5Bevent_url%5D=exames.contraprova.com.br%2F" alt=""></noscript>
+      <script type="litespeed/javascript">(function(){var c=document.body.className;c=c.replace(/woocommerce-no-js/,'woocommerce-js');document.body.className=c})()</script> <script id="wp-i18n-js-after" type="litespeed/javascript">wp.i18n.setLocaleData({'text direction\u0004ltr':['ltr']})</script> <script id="contact-form-7-js-translations" type="litespeed/javascript">(function(domain,translations){var localeData=translations.locale_data[domain]||translations.locale_data.messages;localeData[""].domain=domain;wp.i18n.setLocaleData(localeData,domain)})("contact-form-7",{"translation-revision-date":"2025-05-19 13:41:20+0000","generator":"GlotPress\/4.0.1","domain":"messages","locale_data":{"messages":{"":{"domain":"messages","plural-forms":"nplurals=2; plural=n > 1;","lang":"pt_BR"},"Error:":["Erro:"]}},"comment":{"reference":"includes\/js\/index.js"}})</script> <script id="contact-form-7-js-before" type="litespeed/javascript">var wpcf7={"api":{"root":"https:\/\/exames.contraprova.com.br\/wp-json\/","namespace":"contact-form-7\/v1"},"cached":1}</script> <script id="wc-exames-js-js-extra" type="litespeed/javascript">var wc_exames_params={"checkout_url":"https:\/\/exames.contraprova.com.br\/finalizar-compra\/"}</script> <script id="wc-order-attribution-js-extra" type="litespeed/javascript">var wc_order_attribution={"params":{"lifetime":1.0e-5,"session":30,"base64":!1,"ajaxurl":"https:\/\/exames.contraprova.com.br\/wp-admin\/admin-ajax.php","prefix":"wc_order_attribution_","allowTracking":!0},"fields":{"source_type":"current.typ","referrer":"current_add.rf","utm_campaign":"current.cmp","utm_source":"current.src","utm_medium":"current.mdm","utm_content":"current.cnt","utm_id":"current.id","utm_term":"current.trm","utm_source_platform":"current.plt","utm_creative_format":"current.fmt","utm_marketing_tactic":"current.tct","session_entry":"current_add.ep","session_start_time":"current_add.fd","session_pages":"session.pgs","session_count":"udata.vst","user_agent":"udata.uag"}}</script> <script type="litespeed/javascript">document.addEventListener('wpcf7mailsent',function(event){window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'wpcf7_submission',formId:event.detail.contactFormId,unitTag:event.detail.unitTag});console.log('Evento enviado ao dataLayer')})</script> <script data-no-optimize="1">window.lazyLoadOptions=Object.assign({},{threshold:300},window.lazyLoadOptions||{});!function(t,e){"object"==typeof exports&&"undefined"!=typeof module?module.exports=e():"function"==typeof define&&define.amd?define(e):(t="undefined"!=typeof globalThis?globalThis:t||self).LazyLoad=e()}(this,function(){"use strict";function e(){return(e=Object.assign||function(t){for(var e=1;e<arguments.length;e++){var n,a=arguments[e];for(n in a)Object.prototype.hasOwnProperty.call(a,n)&&(t[n]=a[n])}return t}).apply(this,arguments)}function o(t){return e({},at,t)}function l(t,e){return t.getAttribute(gt+e)}function c(t){return l(t,vt)}function s(t,e){return function(t,e,n){e=gt+e;null!==n?t.setAttribute(e,n):t.removeAttribute(e)}(t,vt,e)}function i(t){return s(t,null),0}function r(t){return null===c(t)}function u(t){return c(t)===_t}function d(t,e,n,a){t&&(void 0===a?void 0===n?t(e):t(e,n):t(e,n,a))}function f(t,e){et?t.classList.add(e):t.className+=(t.className?" ":"")+e}function _(t,e){et?t.classList.remove(e):t.className=t.className.replace(new RegExp("(^|\\s+)"+e+"(\\s+|$)")," ").replace(/^\s+/,"").replace(/\s+$/,"")}function g(t){return t.llTempImage}function v(t,e){!e||(e=e._observer)&&e.unobserve(t)}function b(t,e){t&&(t.loadingCount+=e)}function p(t,e){t&&(t.toLoadCount=e)}function n(t){for(var e,n=[],a=0;e=t.children[a];a+=1)"SOURCE"===e.tagName&&n.push(e);return n}function h(t,e){(t=t.parentNode)&&"PICTURE"===t.tagName&&n(t).forEach(e)}function a(t,e){n(t).forEach(e)}function m(t){return!!t[lt]}function E(t){return t[lt]}function I(t){return delete t[lt]}function y(e,t){var n;m(e)||(n={},t.forEach(function(t){n[t]=e.getAttribute(t)}),e[lt]=n)}function L(a,t){var o;m(a)&&(o=E(a),t.forEach(function(t){var e,n;e=a,(t=o[n=t])?e.setAttribute(n,t):e.removeAttribute(n)}))}function k(t,e,n){f(t,e.class_loading),s(t,st),n&&(b(n,1),d(e.callback_loading,t,n))}function A(t,e,n){n&&t.setAttribute(e,n)}function O(t,e){A(t,rt,l(t,e.data_sizes)),A(t,it,l(t,e.data_srcset)),A(t,ot,l(t,e.data_src))}function w(t,e,n){var a=l(t,e.data_bg_multi),o=l(t,e.data_bg_multi_hidpi);(a=nt&&o?o:a)&&(t.style.backgroundImage=a,n=n,f(t=t,(e=e).class_applied),s(t,dt),n&&(e.unobserve_completed&&v(t,e),d(e.callback_applied,t,n)))}function x(t,e){!e||0<e.loadingCount||0<e.toLoadCount||d(t.callback_finish,e)}function M(t,e,n){t.addEventListener(e,n),t.llEvLisnrs[e]=n}function N(t){return!!t.llEvLisnrs}function z(t){if(N(t)){var e,n,a=t.llEvLisnrs;for(e in a){var o=a[e];n=e,o=o,t.removeEventListener(n,o)}delete t.llEvLisnrs}}function C(t,e,n){var a;delete t.llTempImage,b(n,-1),(a=n)&&--a.toLoadCount,_(t,e.class_loading),e.unobserve_completed&&v(t,n)}function R(i,r,c){var l=g(i)||i;N(l)||function(t,e,n){N(t)||(t.llEvLisnrs={});var a="VIDEO"===t.tagName?"loadeddata":"load";M(t,a,e),M(t,"error",n)}(l,function(t){var e,n,a,o;n=r,a=c,o=u(e=i),C(e,n,a),f(e,n.class_loaded),s(e,ut),d(n.callback_loaded,e,a),o||x(n,a),z(l)},function(t){var e,n,a,o;n=r,a=c,o=u(e=i),C(e,n,a),f(e,n.class_error),s(e,ft),d(n.callback_error,e,a),o||x(n,a),z(l)})}function T(t,e,n){var a,o,i,r,c;t.llTempImage=document.createElement("IMG"),R(t,e,n),m(c=t)||(c[lt]={backgroundImage:c.style.backgroundImage}),i=n,r=l(a=t,(o=e).data_bg),c=l(a,o.data_bg_hidpi),(r=nt&&c?c:r)&&(a.style.backgroundImage='url("'.concat(r,'")'),g(a).setAttribute(ot,r),k(a,o,i)),w(t,e,n)}function G(t,e,n){var a;R(t,e,n),a=e,e=n,(t=Et[(n=t).tagName])&&(t(n,a),k(n,a,e))}function D(t,e,n){var a;a=t,(-1<It.indexOf(a.tagName)?G:T)(t,e,n)}function S(t,e,n){var a;t.setAttribute("loading","lazy"),R(t,e,n),a=e,(e=Et[(n=t).tagName])&&e(n,a),s(t,_t)}function V(t){t.removeAttribute(ot),t.removeAttribute(it),t.removeAttribute(rt)}function j(t){h(t,function(t){L(t,mt)}),L(t,mt)}function F(t){var e;(e=yt[t.tagName])?e(t):m(e=t)&&(t=E(e),e.style.backgroundImage=t.backgroundImage)}function P(t,e){var n;F(t),n=e,r(e=t)||u(e)||(_(e,n.class_entered),_(e,n.class_exited),_(e,n.class_applied),_(e,n.class_loading),_(e,n.class_loaded),_(e,n.class_error)),i(t),I(t)}function U(t,e,n,a){var o;n.cancel_on_exit&&(c(t)!==st||"IMG"===t.tagName&&(z(t),h(o=t,function(t){V(t)}),V(o),j(t),_(t,n.class_loading),b(a,-1),i(t),d(n.callback_cancel,t,e,a)))}function $(t,e,n,a){var o,i,r=(i=t,0<=bt.indexOf(c(i)));s(t,"entered"),f(t,n.class_entered),_(t,n.class_exited),o=t,i=a,n.unobserve_entered&&v(o,i),d(n.callback_enter,t,e,a),r||D(t,n,a)}function q(t){return t.use_native&&"loading"in HTMLImageElement.prototype}function H(t,o,i){t.forEach(function(t){return(a=t).isIntersecting||0<a.intersectionRatio?$(t.target,t,o,i):(e=t.target,n=t,a=o,t=i,void(r(e)||(f(e,a.class_exited),U(e,n,a,t),d(a.callback_exit,e,n,t))));var e,n,a})}function B(e,n){var t;tt&&!q(e)&&(n._observer=new IntersectionObserver(function(t){H(t,e,n)},{root:(t=e).container===document?null:t.container,rootMargin:t.thresholds||t.threshold+"px"}))}function J(t){return Array.prototype.slice.call(t)}function K(t){return t.container.querySelectorAll(t.elements_selector)}function Q(t){return c(t)===ft}function W(t,e){return e=t||K(e),J(e).filter(r)}function X(e,t){var n;(n=K(e),J(n).filter(Q)).forEach(function(t){_(t,e.class_error),i(t)}),t.update()}function t(t,e){var n,a,t=o(t);this._settings=t,this.loadingCount=0,B(t,this),n=t,a=this,Y&&window.addEventListener("online",function(){X(n,a)}),this.update(e)}var Y="undefined"!=typeof window,Z=Y&&!("onscroll"in window)||"undefined"!=typeof navigator&&/(gle|ing|ro)bot|crawl|spider/i.test(navigator.userAgent),tt=Y&&"IntersectionObserver"in window,et=Y&&"classList"in document.createElement("p"),nt=Y&&1<window.devicePixelRatio,at={elements_selector:".lazy",container:Z||Y?document:null,threshold:300,thresholds:null,data_src:"src",data_srcset:"srcset",data_sizes:"sizes",data_bg:"bg",data_bg_hidpi:"bg-hidpi",data_bg_multi:"bg-multi",data_bg_multi_hidpi:"bg-multi-hidpi",data_poster:"poster",class_applied:"applied",class_loading:"litespeed-loading",class_loaded:"litespeed-loaded",class_error:"error",class_entered:"entered",class_exited:"exited",unobserve_completed:!0,unobserve_entered:!1,cancel_on_exit:!0,callback_enter:null,callback_exit:null,callback_applied:null,callback_loading:null,callback_loaded:null,callback_error:null,callback_finish:null,callback_cancel:null,use_native:!1},ot="src",it="srcset",rt="sizes",ct="poster",lt="llOriginalAttrs",st="loading",ut="loaded",dt="applied",ft="error",_t="native",gt="data-",vt="ll-status",bt=[st,ut,dt,ft],pt=[ot],ht=[ot,ct],mt=[ot,it,rt],Et={IMG:function(t,e){h(t,function(t){y(t,mt),O(t,e)}),y(t,mt),O(t,e)},IFRAME:function(t,e){y(t,pt),A(t,ot,l(t,e.data_src))},VIDEO:function(t,e){a(t,function(t){y(t,pt),A(t,ot,l(t,e.data_src))}),y(t,ht),A(t,ct,l(t,e.data_poster)),A(t,ot,l(t,e.data_src)),t.load()}},It=["IMG","IFRAME","VIDEO"],yt={IMG:j,IFRAME:function(t){L(t,pt)},VIDEO:function(t){a(t,function(t){L(t,pt)}),L(t,ht),t.load()}},Lt=["IMG","IFRAME","VIDEO"];return t.prototype={update:function(t){var e,n,a,o=this._settings,i=W(t,o);{if(p(this,i.length),!Z&&tt)return q(o)?(e=o,n=this,i.forEach(function(t){-1!==Lt.indexOf(t.tagName)&&S(t,e,n)}),void p(n,0)):(t=this._observer,o=i,t.disconnect(),a=t,void o.forEach(function(t){a.observe(t)}));this.loadAll(i)}},destroy:function(){this._observer&&this._observer.disconnect(),K(this._settings).forEach(function(t){I(t)}),delete this._observer,delete this._settings,delete this.loadingCount,delete this.toLoadCount},loadAll:function(t){var e=this,n=this._settings;W(t,n).forEach(function(t){v(t,e),D(t,n,e)})},restoreAll:function(){var e=this._settings;K(e).forEach(function(t){P(t,e)})}},t.load=function(t,e){e=o(e);D(t,e)},t.resetStatus=function(t){i(t)},t}),function(t,e){"use strict";function n(){e.body.classList.add("litespeed_lazyloaded")}function a(){console.log("[LiteSpeed] Start Lazy Load"),o=new LazyLoad(Object.assign({},t.lazyLoadOptions||{},{elements_selector:"[data-lazyloaded]",callback_finish:n})),i=function(){o.update()},t.MutationObserver&&new MutationObserver(i).observe(e.documentElement,{childList:!0,subtree:!0,attributes:!0})}var o,i;t.addEventListener?t.addEventListener("load",a,!1):t.attachEvent("onload",a)}(window,document);</script><script data-no-optimize="1">window.litespeed_ui_events=window.litespeed_ui_events||["mouseover","click","keydown","wheel","touchmove","touchstart"];var urlCreator=window.URL||window.webkitURL;function litespeed_load_delayed_js_force(){console.log("[LiteSpeed] Start Load JS Delayed"),litespeed_ui_events.forEach(e=>{window.removeEventListener(e,litespeed_load_delayed_js_force,{passive:!0})}),document.querySelectorAll("iframe[data-litespeed-src]").forEach(e=>{e.setAttribute("src",e.getAttribute("data-litespeed-src"))}),"loading"==document.readyState?window.addEventListener("DOMContentLoaded",litespeed_load_delayed_js):litespeed_load_delayed_js()}litespeed_ui_events.forEach(e=>{window.addEventListener(e,litespeed_load_delayed_js_force,{passive:!0})});async function litespeed_load_delayed_js(){let t=[];for(var d in document.querySelectorAll('script[type="litespeed/javascript"]').forEach(e=>{t.push(e)}),t)await new Promise(e=>litespeed_load_one(t[d],e));document.dispatchEvent(new Event("DOMContentLiteSpeedLoaded")),window.dispatchEvent(new Event("DOMContentLiteSpeedLoaded"))}function litespeed_load_one(t,e){console.log("[LiteSpeed] Load ",t);var d=document.createElement("script");d.addEventListener("load",e),d.addEventListener("error",e),t.getAttributeNames().forEach(e=>{"type"!=e&&d.setAttribute("data-src"==e?"src":e,t.getAttribute(e))});let a=!(d.type="text/javascript");!d.src&&t.textContent&&(d.src=litespeed_inline2src(t.textContent),a=!0),t.after(d),t.remove(),a&&e()}function litespeed_inline2src(t){try{var d=urlCreator.createObjectURL(new Blob([t.replace(/^(?:<!--)?(.*?)(?:-->)?$/gm,"$1")],{type:"text/javascript"}))}catch(e){d="data:text/javascript;base64,"+btoa(t.replace(/^(?:<!--)?(.*?)(?:-->)?$/gm,"$1"))}return d}</script><script data-no-optimize="1">var litespeed_vary=document.cookie.replace(/(?:(?:^|.*;\s*)_lscache_vary\s*\=\s*([^;]*).*$)|^.*$/,"");litespeed_vary||fetch("/wp-content/plugins/litespeed-cache/guest.vary.php",{method:"POST",cache:"no-cache",redirect:"follow"}).then(e=>e.json()).then(e=>{console.log(e),e.hasOwnProperty("reload")&&"yes"==e.reload&&(sessionStorage.setItem("litespeed_docref",document.referrer),window.location.reload(!0))});</script><script data-optimized="1" type="litespeed/javascript" data-src="https://exames.contraprova.com.br/wp-content/litespeed/js/89bc2e02ffac27750ac0e23bc7d7c8f6.js?ver=c56bb"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vcd15cbe7772f49c399c6a5babf22c1241717689176015" integrity="sha512-ZpsOmlRQV6y907TI0dKBHq9Md29nnaEIPlkf84rnaERnq6zvWvPUqr2ft8M1aS28oN72PdrCzSjY4U6VaAw1EQ==" data-cf-beacon='{"version":"2024.11.0","token":"5e4fcc286dd245d5b4b93ccdce687eb0","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+   </body>
 </html>
-
-
-
+<!-- Page optimized by LiteSpeed Cache @2025-11-15 17:24:35 -->
+<!-- Page cached by LiteSpeed Cache 7.6.2 on 2025-11-15 17:24:35 -->
+<!-- Guest Mode -->
+<!-- QUIC.cloud UCSS in queue -->
